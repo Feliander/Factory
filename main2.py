@@ -2,15 +2,17 @@ import sys
 from PyQt5 import QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib import pyplot as plt
-from MyGUI3 import Ui_MainWindow
-import mysql.connector
+from Factory.MyGUI3 import Ui_MainWindow
+import pymysql
 
 
-mydb = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        passwd='pOtatO228',
-        database='mydb'
+mydb = pymysql.connect(
+            host='localhost',
+            user='root',
+            password='root',
+            db='mydb',
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor
     )
 mycursor = mydb.cursor()
 

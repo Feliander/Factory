@@ -4,7 +4,7 @@ import datetime
 mydb = mysql.connector.connect(
     host='localhost',
     user='root',
-    passwd='pOtatO228',
+    passwd='root',
     database='mydb'
 )
 
@@ -31,9 +31,9 @@ mycursor = mydb.cursor()
 #       'month INT(10),' \
 #       'year INT(10)' \
 #       ')'
-# sql = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-#                             'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-#                             'SUM(task), SUM(maket) FROM worktime WHERE (year = \'2019\') and (year = \'2020\')'
+sql = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
+                            'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+                            'SUM(task), SUM(maket) FROM worktime WHERE (year = \'2019\') and (year = \'2020\')'
 # sql = 'DELETE FROM worktime WHERE id = 46'
 sql = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
                    'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
@@ -55,14 +55,14 @@ val14 = datetime.datetime.strftime(datetime.datetime.now(), "%H")
 val15 = datetime.datetime.strftime(datetime.datetime.now(), "%d")
 val16 = datetime.datetime.strftime(datetime.datetime.now(), "%m")
 val17 = datetime.datetime.strftime(datetime.datetime.now(), "%Y")
-# val17 = 2019
+val17 = 2019
 mycursor.execute(sql, (val1, val2, val3, val4, val5, val6,
                                          val7, val8, val9, val10, val11, val12,
                                          val13, val14, val15, val16, val17))
 # mycursor.execute(sql)
 # myresult = mycursor.fetchall()
 # mycursor.execute(sql, (val1, val2, val3))
-mydb.commit()
-# for x in myresult:
-#     print(x)
+# mydb.commit()
+for x in myresult:
+    print(x)
 # print(mycursor.rowcount, "record(s) deleted")

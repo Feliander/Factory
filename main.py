@@ -1,8 +1,8 @@
 import sys
 import datetime
-import mysql.connector
+import pymysql
 from PyQt5 import QtWidgets, QtCore
-from MyGUI import Ui_MainWindow
+from Factory.MyGUI import Ui_MainWindow
 
 
 class MyWin(QtWidgets.QMainWindow):
@@ -30,13 +30,15 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.pushButton_10.setEnabled(False)
         self.ui.pushButton_11.setEnabled(False)
         self.ui.pushButton_12.setEnabled(False)
-        self.mydb = mysql.connector.connect(
+        self.connection = pymysql.connect(
             host='localhost',
             user='root',
-            passwd='pOtatO228',
-            database='mydb'
+            password='root',
+            db='mydb',
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor
         )
-        self.mycursor = self.mydb.cursor()
+        self.mycursor = self.connection.cursor()
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.updateTimer)
         self.timer2 = QtCore.QTimer(self)
@@ -506,7 +508,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.mycursor.execute(self.sql, (self.val1, self.val2, self.val3, self.val4, self.val5, self.val6,
                                          self.val7, self.val8, self.val9, self.val10, self.val11, self.val12,
                                          self.val13, self.val14, self.val15, self.val16, self.val17))
-        self.mydb.commit()
+        self.connection.commit()
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

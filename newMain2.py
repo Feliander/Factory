@@ -2,15 +2,17 @@ import sys
 from PyQt5 import QtWidgets, QtCore
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib import pyplot as plt
-from MyGUI2 import Ui_MainWindow
-import mysql.connector
+from Factory.MyGUI2 import Ui_MainWindow
+import pymysql
 
 
-mydb = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        passwd='pOtatO228',
-        database='mydb'
+mydb = pymysql.connect(
+            host='localhost',
+            user='root',
+            password='root',
+            db='mydb',
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor
     )
 mycursor = mydb.cursor()
 
@@ -42,29 +44,29 @@ def prepare_canvas(gra, layout=None):
 
 def graph(sql, name):
     mycursor.execute(sql)
-    myresult = mycursor.fetchall()
-    for x in myresult:
-        total = x[0]
-        plan = x[1]
-        setup = x[2]
-        autoserv = x[3]
-        ppr = x[4]
-        br = x[5]
-        material = x[6]
-        task = x[7]
-        maket = x[8]
-        pieces = (total, plan, setup, autoserv, ppr, br, material, task, maket)
-        cols = ('#00aa00', '#ff5500', '#5500ff', '#ff00ff', '#aa0000', '#848400', '#309090', '#6d6da3', '#0000ff')
-        fig, axes = plt.subplots()
-        owners = ['Работа', 'Плановый перерыв', 'Переналадка/Перенастройка',
+    result = mycursor.fetchall()
+    myresult = (result[0])
+    total = myresult.get('SUM(totaltime)')
+    plan = myresult.get('SUM(plantime)')
+    setup = myresult.get('SUM(setup)')
+    autoserv = myresult.get('SUM(autoserv)')
+    ppr = myresult.get('SUM(ppr)')
+    br = myresult.get('SUM(break)')
+    material = myresult.get('SUM(material)')
+    task = myresult.get('SUM(task)')
+    maket = myresult.get('SUM(maket)')
+    pieces = (total, plan, setup, autoserv, ppr, br, material, task, maket)
+    cols = ('#00aa00', '#ff5500', '#5500ff', '#ff00ff', '#aa0000', '#848400', '#309090', '#6d6da3', '#0000ff')
+    fig, axes = plt.subplots()
+    owners = ['Работа', 'Плановый перерыв', 'Переналадка/Перенастройка',
                   'Автономное обслуживание', 'ППР', 'Поломка оборудования', 'Отсутствие материалов',
                   'Отсутствие задания', 'Изготовление макетов']
-        axes.pie(pieces,
+    axes.pie(pieces,
                  colors=cols,
                  wedgeprops={'lw': 0.5, 'ls': '-', 'edgecolor': "k"},)
-        plt.legend(owners, loc='best', bbox_to_anchor=(0, 1), title='Легенда')
-        axes.set_title(name)
-        return fig, axes
+    plt.legend(owners, loc='best', bbox_to_anchor=(0, 1), title='Легенда')
+    axes.set_title(name)
+    return fig, axes
 
 
 class Example(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -192,17 +194,17 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def lbl(self, sql, txt):
         mycursor.execute(sql)
-        myresult = mycursor.fetchall()
-        for x in myresult:
-            total = x[0]
-            plan = x[1]
-            setup = x[2]
-            autoserv = x[3]
-            ppr = x[4]
-            br = x[5]
-            material = x[6]
-            task = x[7]
-            maket = x[8]
+        result = mycursor.fetchall()
+        myresult = (result[0])
+        total = myresult.get('SUM(totaltime)')
+        plan = myresult.get('SUM(plantime)')
+        setup = myresult.get('SUM(setup)')
+        autoserv = myresult.get('SUM(autoserv)')
+        ppr = myresult.get('SUM(ppr)')
+        br = myresult.get('SUM(break)')
+        material = myresult.get('SUM(material)')
+        task = myresult.get('SUM(task)')
+        maket = myresult.get('SUM(maket)')
         self.label_3.setText(txt)
         self.label_2.setText('Работа:')
         self.label_5.setText("%02d ч %02d м %02d с " %
