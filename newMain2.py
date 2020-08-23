@@ -5,29 +5,27 @@ from matplotlib import pyplot as plt
 from Factory.MyGUI2 import Ui_MainWindow
 import pymysql
 
-
 mydb = pymysql.connect(
-            host='localhost',
-            user='root',
-            password='root',
-            db='mydb',
-            charset='utf8mb4',
-            cursorclass=pymysql.cursors.DictCursor
-    )
+    host='localhost',
+    user='root',
+    password='root',
+    db='mydb',
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
+)
 mycursor = mydb.cursor()
 
-
 total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-            'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-            'SUM(task), SUM(maket) FROM worktime'
+        'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+        'SUM(task), SUM(maket) FROM worktime'
 
 laser77 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-              'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-              'SUM(task), SUM(maket) FROM worktime WHERE name = \'Laser L77\''
+          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+          'SUM(task), SUM(maket) FROM worktime WHERE name = \'Laser L77\''
 
 laser20 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-              'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-              'SUM(task), SUM(maket) FROM worktime WHERE name = \'Laser L20\''
+          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+          'SUM(task), SUM(maket) FROM worktime WHERE name = \'Laser L20\''
 
 
 class MyMplCanavas(FigureCanvasQTAgg):
@@ -59,11 +57,11 @@ def graph(sql, name):
     cols = ('#00aa00', '#ff5500', '#5500ff', '#ff00ff', '#aa0000', '#848400', '#309090', '#6d6da3', '#0000ff')
     fig, axes = plt.subplots()
     owners = ['Работа', 'Плановый перерыв', 'Переналадка/Перенастройка',
-                  'Автономное обслуживание', 'ППР', 'Поломка оборудования', 'Отсутствие материалов',
-                  'Отсутствие задания', 'Изготовление макетов']
+              'Автономное обслуживание', 'ППР', 'Поломка оборудования', 'Отсутствие материалов',
+              'Отсутствие задания', 'Изготовление макетов']
     axes.pie(pieces,
-                 colors=cols,
-                 wedgeprops={'lw': 0.5, 'ls': '-', 'edgecolor': "k"},)
+             colors=cols,
+             wedgeprops={'lw': 0.5, 'ls': '-', 'edgecolor': "k"}, )
     plt.legend(owners, loc='best', bbox_to_anchor=(0, 1), title='Легенда')
     axes.set_title(name)
     return fig, axes
@@ -138,13 +136,13 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
     def totall(self):
         if (self.year2() == '2020' and self.year() == '2020'):
             self.total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                            'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                            'SUM(task), SUM(maket) FROM worktime WHERE year = \'2020\''
+                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+                         'SUM(task), SUM(maket) FROM worktime WHERE year = \'2020\''
             return self.total
         elif (self.year2() == '2019' and self.year() == '2020'):
             self.total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                            'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                            'SUM(task), SUM(maket) FROM worktime WHERE (year = \'2019\') AND (year = \'2020\')'
+                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+                         'SUM(task), SUM(maket) FROM worktime WHERE (year = \'2019\') AND (year = \'2020\')'
             return self.total
 
     def act(self, text):
@@ -165,10 +163,9 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.canvas = prepare_canvas(graph(total, 'Участок полноcтью'), layout=self.companovka)
                 QtWidgets.QMessageBox.information(None, 'Message', 'Информации за данный промежуток не существует!')
 
-
     def push(self):
         tex, ok = QtWidgets.QInputDialog.getText(None, 'Запрос', 'Введите SQL запрос, например:',
-                                       text='SELECT SUM(totaltime) FROM worktime WHERE name = \'Laser L20\'')
+                                                 text='SELECT SUM(totaltime) FROM worktime WHERE name = \'Laser L20\'')
         try:
             if ok:
                 mycursor.execute(tex)
@@ -177,8 +174,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                     for x in myresult:
                         tot = x[0]
                     QtWidgets.QMessageBox.information(None, 'Результат запроса',
-                                              'Результат: ' + " %02d ч %02d м %02d с " %
-                                              (tot / 3600, (tot / 60) % 60, tot % 60))
+                                                      'Результат: ' + " %02d ч %02d м %02d с " %
+                                                      (tot / 3600, (tot / 60) % 60, tot % 60))
                 except:
                     flatten = [str(item) for sub in myresult for item in sub]
                     QtWidgets.QMessageBox.information(None, 'Результат запроса',
@@ -211,16 +208,16 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                              (total / 3600, (total / 60) % 60, total % 60))
         self.label_6.setText('Плановый перерыв:')
         self.label_14.setText("%02d ч %02d м %02d с " %
-                             (plan / 3600, (plan / 60) % 60, plan % 60))
+                              (plan / 3600, (plan / 60) % 60, plan % 60))
         self.label_7.setText('Переналадка/перенастройка:')
         self.label_15.setText("%02d ч %02d м %02d с " %
-                             (setup / 3600, (setup / 60) % 60, setup % 60))
+                              (setup / 3600, (setup / 60) % 60, setup % 60))
         self.label_8.setText('Автономное обслуживание:')
         self.label_16.setText("%02d ч %02d м %02d с " %
-                             (autoserv / 3600, (autoserv / 60) % 60, autoserv % 60))
+                              (autoserv / 3600, (autoserv / 60) % 60, autoserv % 60))
         self.label_9.setText('ППР:')
         self.label_17.setText("%02d ч %02d м %02d с " %
-                             (ppr / 3600, (ppr / 60) % 60, ppr % 60))
+                              (ppr / 3600, (ppr / 60) % 60, ppr % 60))
         self.label_10.setText('Поломка оборудования:')
         self.label_18.setText("%02d ч %02d м %02d с " %
                               (br / 3600, (br / 60) % 60, br % 60))
