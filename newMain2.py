@@ -139,6 +139,11 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
                          'SUM(task), SUM(maket) FROM worktime WHERE year = \'2020\''
             return self.total
+            if (self.month() == 1):
+                self.total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
+                            'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+                            'SUM(task), SUM(maket) FROM worktime WHERE year = \'2020\' AND month = 8'
+                return self.total
         elif (self.year2() == '2019' and self.year() == '2020'):
             self.total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
                          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
