@@ -12,26 +12,25 @@ mydb = pymysql.connect(
 
 mycursor = mydb.cursor()
 
-sql = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-        'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-        'SUM(task), SUM(maket) FROM worktime ' \
-        'WHERE year BETWEEN (%s) AND (%s) ' \
-        'AND month BETWEEN (%s) AND (%s) ' \
-        'AND day BETWEEN (%s) AND (%s)' \
-        'AND hours BETWEEN (%s) AND (%s)' \
-        'AND minutes BETWEEN (%s) AND (%s)'
 val1 = '2020'
 val2 = '2020'
 val3 = '01'
 val4 = '12'
-val5 = '23'
-val6 = '23'
-val7 = '00'
-val8 = '24'
-val9 = '00'
-val10 = '60'
 
-mycursor.execute(sql, (val1, val2, val3, val4, val5, val6, val7, val8, val9, val10))
+
+def sql():
+    if val1 == '2020' and val2 == '2020':
+        if val3 == '01' and val4 == '12':
+            sql = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
+                  'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+                  'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 12)'
+            return sql
+
+
+
+mycursor.execute(sql())
 myresult = mycursor.fetchall()
-
 print(myresult)
+
+
+
