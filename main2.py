@@ -20,10 +20,9 @@ total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
         'SUM(task), SUM(maket) FROM worktime'
 
 year = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-        'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-        'SUM(task), SUM(maket) FROM worktime ' \
-        'WHERE (year = (%s) OR year = (%s)) ' \
-        'AND (month BETWEEN (%s) AND (%s))'
+       'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+       'SUM(task), SUM(maket) FROM worktime ' \
+       'WHERE year BETWEEN (%s) AND (%s) '
 
 
 class MyMplCanavas(FigureCanvasQTAgg):
@@ -42,8 +41,8 @@ def query0(sql):
     mycursor.execute(sql)
 
 
-def query1(sql, val1, val2, val3, val4):
-    mycursor.execute(sql, (val1, val2, val3, val4))
+def query1(sql, val1, val2):
+    mycursor.execute(sql, (val1, val2))
 
 
 def graph(query, name):
@@ -147,78 +146,16 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         if text == 'Участок полностью':
             self.update()
             try:
-                self.canvas = prepare_canvas(graph(query1(year, int(self. year()), int(self.year2()),
-                                                   int(self.month()), int(self.month2())), 'Участок полностью'),
-                                             layout=self.companovka)
-                self.lbl(query1(year, int(self. year()), int(self.year2()), int(self.month()),
-                         int(self.month2())), 'Участок полностью')
+                self.total()
             except ValueError:
-                self.zero()
-            except TypeError:
                 self.zero()
 
     def total(self):
-        if self.year() == '2019' and self.year2() == '2019':
-            total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                    'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                    'SUM(task), SUM(maket) FROM worktime WHERE year = 2019'
-            return total1
-        elif self.year() == '2020' and self.year2() == '2020':
-            if self. month() == '01' and self.month2() == '12':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 12)'
-                return total1
-            elif self. month() == '01' and self.month2() == '11':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 11)'
-                return total1
-            elif self. month() == '01' and self.month2() == '10':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 10)'
-                return total1
-            elif self. month() == '01' and self.month2() == '09':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 9)'
-                return total1
-            elif self. month() == '01' and self.month2() == '08':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 8)'
-                return total1
-            elif self. month() == '01' and self.month2() == '07':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 01 AND 7)'
-                return total1
-            elif self. month() == '01' and self.month2() == '06':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 6)'
-                return total1
-            elif self. month() == '01' and self.month2() == '05':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 5)'
-                return total1
-            elif self.month() == '01' and self.month2() == '04':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 4)'
-                return total1
-            elif self. month() == '01' and self.month2() == '03':
-                total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                         'SUM(task), SUM(maket) FROM worktime WHERE (year = 2020) AND (month BETWEEN 1 AND 3)'
-                return total1
-        elif self.year() == '2019' and self.year2() == '2020':
-            total1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-                     'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-                     'SUM(task), SUM(maket) FROM worktime WHERE year = 2019 OR year = 2020'
-            return total1
+        if int(self.year()) == int(self.year2()) == 2020:
+            if int(self.month()) < int(self.month2()):
+                self.canvas = prepare_canvas(graph(query1(year, int(self.year()), int(self.year2())),
+                                                   'Участок полноcтью'), layout=self.companovka)
+                self.lbl(query1(year, int(self.year()), int(self.year2())), 'Участок полноcтью')
 
     def push(self):
         QtWidgets.QMessageBox.information(None, 'year', self.year())
