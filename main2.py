@@ -55,6 +55,23 @@ simple4 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
           'AND (hours BETWEEN (%s) AND (%s))' \
           'AND (minutes BETWEEN (%s) AND (%s))'
 
+not_simple = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
+             'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+             'SUM(task), SUM(maket) FROM worktime ' \
+             'WHERE (year = (%s))' \
+             'AND (month = (%s))' \
+             'AND (day = (%s))' \
+             'AND (hours BETWEEN (%s) AND (%s))' \
+             'union' \
+             'select SUM(totaltime), SUM(plantime), SUM(setup),' \
+             'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
+             'SUM(task), SUM(maket) FROM worktime ' \
+             'WHERE (year = (%s))' \
+             'AND (month = (%s))' \
+             'AND (day = (%s))' \
+             'AND (hours = (%s))' \
+             'AND (minutes between (%s) and (%s))'
+
 
 class MyMplCanvas(FigureCanvasQTAgg):
     def __init__(self, fig):
