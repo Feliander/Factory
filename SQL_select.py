@@ -10,7 +10,7 @@ mydb = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor
 )
 
-mycursor = mydb.cursor()
+my_cursor = mydb.cursor()
 
 year = 2020
 year2 = 2020
@@ -21,21 +21,71 @@ day2 = 12
 h1 = 14
 h2 = 15
 h3 = 13
-m1 = 30
-m2 = 60
+h4 = 12
+m1 = 15
+m2 = 15
+m3 = 0
+m4 = 60
+
+query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+       'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
+       'AND (hours BETWEEN (%s) AND (%s))'
+
+query2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+       'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
+       'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))'
+
+
+def sql5(sql, val1, val2, val3, val4, val5):
+    my_cursor.execute(sql, (val1, val2, val3, val4, val5))
+
+
+def sql6(sql, val1, val2, val3, val4, val5, val6):
+    my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6))
+
+
+def main(sql):
+    result = my_cursor.fetchall()
+    my_result = (result[0])
+    total1 = my_result.get('SUM(totaltime)')
+    plan1 = my_result.get('SUM(plantime)')
+    setup1 = my_result.get('SUM(setup)')
+    autoserv1 = my_result.get('SUM(autoserv)')
+    ppr1 = my_result.get('SUM(ppr)')
+    break1 = my_result.get('SUM(break)')
+    material1 = my_result.get('SUM(material)')
+    task1 = my_result.get('SUM(task)')
+    maket1 = my_result.get('SUM(maket)')
+    print('total: ' + str(total1), 'plan: ' + str(plan1), 'setup: ' + str(setup1), 'autoserv: ' + str(autoserv1),
+          'ppr: ' + str(ppr1), 'break: ' + str(break1), 'material: ' + str(material1), 'task: ' + str(task1),
+          'maket: ' + str(maket1))
+
+
+def total(sql):
+    result = my_cursor.fetchall()
+    my_result = (result[0])
+    total1 = my_result.get('SUM(totaltime)')
+    return total1
+
+
+def plan(sql):
+    result = my_cursor.fetchall()
+    my_result = (result[0])
+    plan1 = my_result.get('SUM(plantime)')
+    return plan1
 
 
 def act():
     if year == year2:
-        print('year == year2')
+        print('year = year2')
         if month == month2:
-            print('month == month2')
+            print('month = month2')
             if day == day2:
-                print('day == day2')
+                print('day = day2')
                 if h1 == h2:
-                    print('h1 == h2')
+                    print('h1 = h2')
                     if m1 == m2:
-                        print('m1 == m2')
+                        print('m1 = m2')
                         pass
                     elif m1 <= m2:
                         print('m1 <= m2')
@@ -44,45 +94,24 @@ def act():
                     print('h1 <= h2')
                     pass
                     if m1 == m2:
-                        print('m1 == m2')
-                        pass
+                        print('m1 = m2')
+                        main(sql6(query2, year, month, day, h4, m1, m4))
+                        main(sql5(query1, year, month, day, h3, h1))
+                        main(sql6(query2, year, month, day, h1, m3, m1))
+                        print('total: ' + str(total(sql6(query2, year, month, day, h4, m1, m4)) +
+                              total(sql5(query1, year, month, day, h3, h1)) +
+                              total(sql6(query2, year, month, day, h1, m3, m1))))
+                        print('plan: ' + str(plan(sql6(query2, year, month, day, h4, m1, m4)) +
+                              plan(sql5(query1, year, month, day, h3, h1)) +
+                              plan(sql6(query2, year, month, day, h1, m3, m1))))
                     elif m1 <= m2:
                         print('m1 <= m2')
-                        main(query)
-
-
-query = 'SELECT SUM(totaltime) + (SELECT SUM(totaltime) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumTotal, ' \
-        'SUM(plantime) + (SELECT SUM(plantime) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumPlan, ' \
-        'SUM(setup) + (SELECT SUM(setup) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumSetup, ' \
-        'SUM(autoserv) + (SELECT SUM(autoserv) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumAutoserv, ' \
-        'SUM(ppr) + (SELECT SUM(ppr) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumPpr, ' \
-        'SUM(break) + (SELECT SUM(break) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumBreak, ' \
-        'SUM(material) + (SELECT SUM(material) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumMaterial, ' \
-        'SUM(task) + (SELECT SUM(task) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumTask, ' \
-        'SUM(maket) + (SELECT SUM(setup) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
-        'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))) as SumMaket ' \
-        'FROM worktime WHERE (year = (%s)) AND (month = (%s)) AND (day = (%s)) AND (hours BETWEEN (%s) AND (%s))'
-
-
-def main(sql):
-    mycursor.execute(sql, (
-        year, month, day, h3, m1, m2, year, month, day, h3, m1, m2, year, month, day, h3, m1, m2,
-        year, month, day, h3, m1, m2, year, month, day, h3, m1, m2, year, month, day, h3, m1, m2,
-        year, month, day, h3, m1, m2, year, month, day, h3, m1, m2, year, month, day, h3, m1, m2,
-        year, month, day, h1, h2))
-    result = mycursor.fetchall()
-    my_result = (result[0])
-    total1 = my_result.get('SumTotal')
-    print(total1)
-    print(result)
+                        main(sql5(query1, year, month, day, h4, h1))
+                        main(sql6(query2, year, month, day, h1, m1, m2))
+                        print('total: ' + str(total(sql5(query1, year, month, day, h4, h1)) +
+                              total(sql6(query2, year, month, day, h1, m1, m2))))
+                        print('plan: ' + str(plan(sql5(query1, year, month, day, h4, h1)) +
+                              plan(sql6(query2, year, month, day, h1, m1, m2))))
 
 
 act()

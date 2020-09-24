@@ -19,58 +19,13 @@ total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
         'SUM(task), SUM(maket) FROM worktime'
 
-simple = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-         'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-         'SUM(task), SUM(maket) FROM worktime ' \
-         'WHERE (year = (%s))' \
-         'AND (month = (%s))' \
-         'AND (day = (%s))' \
-         'AND (hours = (%s))' \
-         'AND (minutes = (%s))'
+query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
+         'AND (hours BETWEEN (%s) AND (%s))'
 
-simple2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-          'SUM(task), SUM(maket) FROM worktime ' \
-          'WHERE (year = (%s))' \
-          'AND (month = (%s))' \
-          'AND (day = (%s))' \
-          'AND (hours = (%s))' \
-          'AND (minutes BETWEEN (%s) AND (%s))'
-
-simple3 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-          'SUM(task), SUM(maket) FROM worktime ' \
-          'WHERE (year = (%s))' \
-          'AND (month = (%s))' \
-          'AND (day = (%s))' \
-          'AND (hours BETWEEN (%s) AND (%s))' \
-          'AND (minutes = (%s))'
-
-simple4 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-          'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-          'SUM(task), SUM(maket) FROM worktime ' \
-          'WHERE (year = (%s))' \
-          'AND (month = (%s))' \
-          'AND (day = (%s))' \
-          'AND (hours BETWEEN (%s) AND (%s))' \
-          'AND (minutes BETWEEN (%s) AND (%s))'
-
-not_simple = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-             'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-             'SUM(task), SUM(maket) FROM worktime ' \
-             'WHERE (year = (%s))' \
-             'AND (month = (%s))' \
-             'AND (day = (%s))' \
-             'AND (hours BETWEEN (%s) AND (%s))' \
-             'union' \
-             'select SUM(totaltime), SUM(plantime), SUM(setup),' \
-             'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-             'SUM(task), SUM(maket) FROM worktime ' \
-             'WHERE (year = (%s))' \
-             'AND (month = (%s))' \
-             'AND (day = (%s))' \
-             'AND (hours = (%s))' \
-             'AND (minutes between (%s) and (%s))'
+query2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
+         'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))'
 
 
 class MyMplCanvas(FigureCanvasQTAgg):
@@ -85,47 +40,40 @@ def prepare_canvas(gra, layout=None):
     return canvas
 
 
-def query0(sql):
+def sql0(sql):
     my_cursor.execute(sql)
 
 
-def query2(sql, val1, val2):
-    my_cursor.execute(sql, (val1, val2))
-
-
-def query5(sql, val1, val2, val3, val4, val5):
+def sql5(sql, val1, val2, val3, val4, val5):
     my_cursor.execute(sql, (val1, val2, val3, val4, val5))
 
 
-def query6(sql, val1, val2, val3, val4, val5, val6):
+def sql6(sql, val1, val2, val3, val4, val5, val6):
     my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6))
 
 
-def query7(sql, val1, val2, val3, val4, val5, val6, val7):
-    my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6, val7))
-
-
-def graph(query, name):
+def tot(sql):
     result = my_cursor.fetchall()
-    myresult = (result[0])
-    totall = myresult.get('SUM(totaltime)')
-    plan = myresult.get('SUM(plantime)')
-    setup = myresult.get('SUM(setup)')
-    autoserv = myresult.get('SUM(autoserv)')
-    ppr = myresult.get('SUM(ppr)')
-    br = myresult.get('SUM(break)')
-    material = myresult.get('SUM(material)')
-    task = myresult.get('SUM(task)')
-    maket = myresult.get('SUM(maket)')
+    my_result = (result[0])
+    total1 = my_result.get('SUM(totaltime)')
+    return total1
+
+
+def pln(sql):
+    result = my_cursor.fetchall()
+    my_result = (result[0])
+    plan1 = my_result.get('SUM(plantime)')
+    return plan1
+
+
+def graph(name, totall, plan, setup, autoserv, ppr, br, material, task, maket):
     pieces = (totall, plan, setup, autoserv, ppr, br, material, task, maket)
-    cols = ('#00aa00', '#ff5500', '#5500ff', '#ff00ff', '#aa0000', '#848400', '#309090', '#6d6da3', '#0000ff')
+    cols = ('#87E65C', '#ff5500', '#5500ff', '#ff00ff', '#aa0000', '#848400', '#309090', '#6d6da3', '#0000ff')
     fig, axes = plt.subplots()
     owners = ['Работа', 'Плановый перерыв', 'Переналадка/Перенастройка',
               'Автономное обслуживание', 'ППР', 'Поломка оборудования', 'Отсутствие материалов',
               'Отсутствие задания', 'Изготовление макетов']
-    axes.pie(pieces,
-             colors=cols,
-             wedgeprops={'lw': 0.5, 'ls': '-', 'edgecolor': "k"}, )
+    axes.pie(pieces, colors=cols, wedgeprops={'lw': 0.5, 'ls': '-', 'edgecolor': "k"}, )
     plt.legend(owners, loc='best', bbox_to_anchor=(0, 1), title='Легенда')
     axes.set_title(name)
     return fig, axes
@@ -138,8 +86,9 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.comboBox.activated[str].connect(self.act)
         self.composition = QtWidgets.QVBoxLayout(self.widget_2)
-        self.prepare_canvas(query0(total), 'Участок полноcтью')
-        self.prepare_label(query0(total), 'Участок полноcтью')
+        self.canvas = prepare_canvas(graph('Графика нет, выберите дату', 10, 10, 10, 10, 10, 10, 10, 10, 10),
+                                     layout=self.composition)
+        self.prepare_label('Графика нет, выберите дату')
         self.pushButton.clicked.connect(self.push)
         self.pushButton.setText('Ввести SQL запрос')
         self.dateTimeEdit.setCalendarPopup(True)
@@ -147,21 +96,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.dateTimeEdit_2.setCalendarPopup(True)
         self.dateTimeEdit_2.setDateTime(QtCore.QDateTime.currentDateTime())
 
-    def prepare_canvas(self, query, txt):
-        self.canvas = prepare_canvas(graph(query, txt), layout=self.composition)
-
-    def prepare_label(self, query, txt):
-        result = my_cursor.fetchall()
-        my_result = (result[0])
-        total_1 = my_result.get('SUM(totaltime)')
-        plan = my_result.get('SUM(plantime)')
-        setup = my_result.get('SUM(setup)')
-        auto_serv = my_result.get('SUM(autoserv)')
-        ppr = my_result.get('SUM(ppr)')
-        br = my_result.get('SUM(break)')
-        material = my_result.get('SUM(material)')
-        task = my_result.get('SUM(task)')
-        model = my_result.get('SUM(maket)')
+    def prepare_label(self, txt, total_1=0, plan=0, setup=0, auto_serv=0, ppr=0, br=0, material=0, task=0,
+                      model=0):
         self.label_3.setText(txt)
         self.label_2.setText('Работа:')
         self.label_5.setText("%02d ч %02d м %02d с " %
@@ -197,11 +133,10 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.canvas = None
 
     def zero(self):
-        self.prepare_canvas(query0(total), 'Участок полноcтью')
-        self.prepare_label(query0(total), 'Участок полноcтью')
+        self.prepare_canvas('Графика нет, выберите дату')
+        self.prepare_label('Графика нет, выберите дату')
         QtWidgets.QMessageBox.information(None, 'Ошибка', 'Информации за данный промежуток не существует.\n\n'
-                                                          'Будут отображены данные всего участка'
-                                                          ' за всё время.')
+                                                          'Никаких данных отображено не будет.')
 
     def act(self, text):
         if text == 'Участок полностью':
@@ -212,36 +147,44 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.zero()
 
     def total(self):
+        txt = 'Участок полностью'
         if self.year() == self.year2():
             if self.month() == self.month2():
                 if self.day() == self.day2():
                     if self.hour() == self.hour2():
                         if self.min() == self.min2():
-                            self.prepare_canvas(query5(simple, self.year(), self.month(), self.day(),
-                                                       self.hour(), self.min()), 'Участок полностью')
-                            self.prepare_label(query5(simple, self.year(), self.month(), self.day(),
-                                                      self.hour(), self.min()), 'Участок полноcтью')
+                            pass
                         elif self.min() <= self.min2():
-                            self.prepare_canvas(query6(simple2, self.year(), self.month(), self.day(),
-                                                       self.hour(), self.min(), self.min2()), 'Участок полностью')
-                            self.prepare_label(query6(simple2, self.year(), self.month(), self.day(),
-                                                      self.hour(), self.hour2(), self.min()), 'Участок полноcтью')
+                            pass
                     elif self.hour() <= self.hour2():
-                        if self. min() == self.min2():
-                            self.prepare_canvas(query6(simple3, self.year(), self.month(), self.day(),
-                                                       self.hour(), self.min(), self.min2()), 'Участок полностью')
-                            self.prepare_label(query6(simple3, self.year(), self.month(), self.day(),
-                                                      self.hour(), self.hour2(), self.min()), 'Участок полноcтью')
+                        if self.min() == self.min2():
+                            t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), 0, self.min()))
+                            t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                            t3 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), self.min(), 60))
+                            if t1 is None:
+                                t1 = 0
+                            if t2 is None:
+                                t2 = 0
+                            if t3 is None:
+                                t3 = 0
+                            t4 = int(t1) + int(t2) + int(t3)
+                            p1 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour(), 0, self.min()))
+                            p2 = pln(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                            p3 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), self.min(), 60))
+                            if p1 is None:
+                                p1 = 0
+                            if p2 is None:
+                                p2 = 0
+                            if p3 is None:
+                                p3 = 0
+                            p4 = int(p1) + int(p2) + int(p3)
+                            prepare_canvas(graph(txt, t4, p4, 10, 10, 10, 10, 10, 10, 10), layout=self.composition)
+                            self.prepare_label(txt, t4, p4, 10, 10, 10, 10, 10, 10, 10)
                         elif self.min() <= self.min2():
-                            self.prepare_canvas(query7(simple4, self.year(), self.month(), self.day(),
-                                                       self.hour(), self.hour2(), self.min(), self.min2()),
-                                                'Участок полностью')
-                            self.prepare_label(query7(simple4, self.year(), self.month(), self.day(),
-                                                      self.hour(), self.hour2(), self.hour2(), self.min()),
-                                               'Участок полноcтью')
-            elif self.month() > self.month2():
+                            pass
+            else:
                 self.zero()
-        elif self.year() > self.year2():
+        else:
             self.zero()
 
     def push(self):
