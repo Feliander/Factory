@@ -240,48 +240,57 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                             self.prepare_label(txt, self.check(t), self.check(p), self.check(s), self.check(a),
                                                self.check(r), self.check(b), self.check(m), self.check(k),
                                                self.check(d))
+                            if self.check(t) == 0:
+                                self.update()
+                                self.zero()
+                            else:
+                                self.explanation1()
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
-                        t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         t3 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         t = self.check(t1) + self.check(t2) + self.check(t3)
-                        p1 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        p2 = pln(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        p1 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        p2 = pln(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         p3 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         p = self.check(p1) + self.check(p2) + self.check(p3)
-                        s1 = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        s2 = stp(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        s1 = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        s2 = stp(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         s3 = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         s = self.check(s1) + self.check(s2) + self.check(s3)
-                        a1 = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        a2 = asv(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        a1 = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        a2 = asv(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         a3 = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         a = self.check(a1) + self.check(a2) + self.check(a3)
-                        r1 = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        r2 = ppr(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        r1 = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        r2 = ppr(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         r3 = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         r = self.check(r1) + self.check(r2) + self.check(r3)
-                        b1 = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        b2 = brk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        b1 = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        b2 = brk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         b3 = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         b = self.check(b1) + self.check(b2) + self.check(b3)
-                        m1 = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        m2 = mat(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        m1 = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        m2 = mat(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         m3 = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         m = self.check(m1) + self.check(m2) + self.check(m3)
-                        k1 = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        k2 = tsk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        k1 = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        k2 = tsk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         k3 = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         k = self.check(k1) + self.check(k2) + self.check(k3)
-                        d1 = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
-                        d2 = mkt(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2()))
+                        d1 = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        d2 = mkt(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
                         d3 = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         d = self.check(d1) + self.check(d2) + self.check(d3)
                         self.canvas = prepare_canvas(graph(txt, t, p, s, a, r, b, m, k, d), layout=self.composition)
                         self.prepare_label(txt, t, p, s, a, r, b, m, k, d)
-                        self.explanation()
+                        if self.check(t) == 0:
+                            self.update()
+                            self.zero()
+                        else:
+                            self.explanation0()
                     else:
                         self.zero2()
             else:
@@ -289,38 +298,50 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.zero()
 
-    def explanation(self):
-        total_1 = int(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 59)))
-        total_2 = int(tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2())))
-        total_3 = int(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2())))
+    def explanation0(self):
+        t_1 = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60)))
+        t_2 = self.check(tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1)))
+        t_3 = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2())))
+        t_4 = t_1 + t_2 + t_3
+        explanation = 'Запрос разделён на три части.' \
+                      '\n\nПервый запрос:' \
+                      '\nВыбрать всё необходимое где дата равна:' \
+                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
+                      str(self.year()) + ' ' + self.check2(str(self.hour())) + ' часов' \
+                      '\nИ минуты в промежутке между: ' + self.check2(str(self.min())) + ' и 60' \
+                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_1 / 3600, (t_1 / 60) % 60, t_1 % 60)) + \
+                      ' или ' + str(t_1) + ' секунд'\
+                      '\n\nВторой запрос:' \
+                      '\nВыбрать всё необходимое где дата равна:' + \
+                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
+                      str(self.year()) + \
+                      '\nИ часы в промежутке между: ' + self.check2(str(self.hour() + 1)) + ':00 и ' \
+                      + self.check2(str(self.hour2() - 1)) + ':00' + \
+                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_2 / 3600, (t_2 / 60) % 60, t_2 % 60)) + \
+                      ' или ' + str(t_2) + ' секунд'\
+                      '\n\nТретий запрос:' \
+                      '\nВыбрать всё необходимое где дата равна:' + \
+                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
+                      str(self.year()) + ' ' + self.check2(str(self.hour2())) + ' часов'\
+                      '\nИ минуты в промежутке между: 0 и ' + self.check2(str(self.min2())) + \
+                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_3 / 3600, (t_3 / 60) % 60, t_3 % 60)) + \
+                      ' или ' + str(t_3) + ' секунд'\
+                      '\n\nРабота всего: ' + ("%02d ч %02d м %02d с " %
+                                              (t_4 / 3600, (t_4 / 60) % 60, t_4 % 60)) + \
+                      ' или ' + str(t_4) + ' секунд'
+        QtWidgets.QMessageBox.information(None, 'Удачный запрос', explanation)
 
-        QtWidgets.QMessageBox.information(None, 'Объяснение',
-                                          'Запрос разделён на три части.'
-                                          '\n\nПервый запрос:\nВыбрать всё необходимое где дата равна:\n'
-                                          + str(self.day()) + '.' + str(self.month()) + '.' + str(self.year()) + ' ' +
-                                          str(self.hour()) + ' часов\n'
-                                          'И минуты в промежутке между: ' + self.check2(str(self.min())) +
-                                          ' и 59'
-                                          '\nРабота: ' + ("%02d ч %02d м %02d с " %
-                                                          (total_1 / 3600, (total_1 / 60) % 60, total_1 % 60)) +
-                                          '\n' + str(total_1) +
-                                          '\n\nВторой запрос:\nНачало отсчёта: '
-                                          + str(self.day()) + '.' + str(self.month()) + '.' + str(self.year()) + ' ' +
-                                          str(self.hour() + 1) + ':00\nКонец отсчёта:    ' +
-                                          str(self.day()) + '.' + str(self.month()) + '.' + str(self.year()) + ' ' +
-                                          str(self.hour2()) + ':00'
-                                          '\nРабота: ' + ("%02d ч %02d м %02d с " %
-                                                          (total_2 / 3600, (total_2 / 60) % 60, total_2 % 60)) +
-                                          '\n' + str(total_2) +
-                                          '\n\nТретий запрос:\nНачало отсчёта: '
-                                          + str(self.day()) + '.' + str(self.month()) + '.' + str(self.year()) + ' ' +
-                                          str(self.hour2()) + ':00\nКонец отсчёта:    ' +
-                                          str(self.day()) + '.' + str(self.month()) + '.' + str(self.year()) + ' ' +
-                                          str(self.hour2()) + ':' + self.check2(str(self.min2())) +
-                                          '\nРабота: ' + ("%02d ч %02d м %02d с " %
-                                                          (total_3 / 3600, (total_3 / 60) % 60, total_3 % 60)) +
-                                          '\n' + str(total_3)
-                                          )
+    def explanation1(self):
+        t = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), self.min2())))
+        explanation = 'Запрос состоит из одной части.' \
+                      '\n\nВыбрать всё необходимое где дата равна:' \
+                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
+                      str(self.year()) + ' ' + self.check2(str(self.hour())) + ' часов' \
+                      '\nИ минуты в промежутке между: ' + self.check2(str(self.min())) + ' и ' + \
+                      self.check2(str(self.min2())) + \
+                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t / 3600, (t / 60) % 60, t % 60)) + \
+                      ' или ' + str(t) + ' секунд'
+        QtWidgets.QMessageBox.information(None, 'Удачный запрос', explanation)
 
     @staticmethod
     def check2(val):
