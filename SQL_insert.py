@@ -1,7 +1,7 @@
 import pymysql
 import datetime
 
-mydb = pymysql.connect(
+my_db = pymysql.connect(
     host='localhost',
     user='root',
     password='root',
@@ -9,7 +9,10 @@ mydb = pymysql.connect(
     charset='utf8mb4',
     cursorclass=pymysql.cursors.DictCursor
 )
-mycursor = mydb.cursor()
+
+my_cursor = my_db.cursor()
+
+name = ['Laser1', 'Laser2', 'Punch', 'Bend1', 'Bend2', 'Bend3', 'Weld', 'Weld_Robot']
 
 sql = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
       'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
@@ -36,8 +39,8 @@ val14 = 17
 val15 = 12
 val16 = 9
 val17 = 2020
-mycursor.execute(sql, (val1, val2, val3, val4, val5, val6,
-                       val7, val8, val9, val10, val11, val12,
-                       val13, val14, val15, val16, val17))
+my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6,
+                        val7, val8, val9, val10, val11, val12,
+                        val13, val14, val15, val16, val17))
 
-mydb.commit()
+my_db.commit()

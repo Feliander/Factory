@@ -15,10 +15,6 @@ db = pymysql.connect(
 )
 my_cursor = db.cursor()
 
-total = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup),' \
-        'SUM(autoserv), SUM(ppr), SUM(break), SUM(material),' \
-        'SUM(task), SUM(maket) FROM worktime'
-
 query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
          'AND (hours BETWEEN (%s) AND (%s))'
@@ -26,6 +22,10 @@ query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(p
 query2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
          'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))'
+
+query3 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
+         'AND (day BETWEEN (%s) AND (%s))'
 
 
 class MyMplCanvas(FigureCanvasQTAgg):
@@ -40,16 +40,20 @@ def prepare_canvas(gra, layout=None):
     return canvas
 
 
-def sql0(sql):
-    my_cursor.execute(sql)
+def sql0(query):
+    my_cursor.execute(query)
 
 
-def sql5(sql, val1, val2, val3, val4, val5):
-    my_cursor.execute(sql, (val1, val2, val3, val4, val5))
+def sql4(query, val1, val2, val3, val4):
+    my_cursor.execute(query, (val1, val2, val3, val4))
 
 
-def sql6(sql, val1, val2, val3, val4, val5, val6):
-    my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6))
+def sql5(query, val1, val2, val3, val4, val5):
+    my_cursor.execute(query, (val1, val2, val3, val4, val5))
+
+
+def sql6(query, val1, val2, val3, val4, val5, val6):
+    my_cursor.execute(query, (val1, val2, val3, val4, val5, val6))
 
 
 def tot(sql):
@@ -293,6 +297,18 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                             self.explanation0()
                     else:
                         self.zero2()
+                elif self.day() <= self.day2():
+                    t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                    t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, 24))
+                    t3 = tot(sql4(query3, self.year(), self.month(), self.day() + 1, self.day2() - 1))
+                    t4 = tot(sql5(query1, self.year(), self.month(), self.day2(), 0, self.hour2()))
+                    t5 = tot(sql6(query2, self.year(), self.month(), self.day2(), self.hour2(), 0, self.min2()))
+                    t = self.check(t1) + self.check(t2) + self.check(t3) + self.check(t4) + self.check(t5)
+                    self.canvas = prepare_canvas(graph(txt, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10),
+                                                 layout=self.composition)
+                    self.prepare_label(txt, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10)
+                else:
+                    self.zero2()
             else:
                 self.zero()
         else:
