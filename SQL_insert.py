@@ -1,5 +1,5 @@
 import pymysql
-import datetime
+import random
 
 my_db = pymysql.connect(
     host='localhost',
@@ -12,35 +12,67 @@ my_db = pymysql.connect(
 
 my_cursor = my_db.cursor()
 
-name = ['Laser1', 'Laser2', 'Punch', 'Bend1', 'Bend2', 'Bend3', 'Weld', 'Weld_Robot']
+name = ['Laser1', 'Laser2', 'Punch', 'Bend1', 'Bend2', 'Bend3', 'Weld', 'Weld_Robot', 'Assembly', 'Cleaning']
+action = ['start_plan_counter', 'stop_plan_counter', 'start_setup', 'stop_setup', 'start_auto_service',
+          'stop_auto_service', 'start_break', 'stop_break', 'start_material', 'stop_material', 'start_task',
+          'stop_task', 'start_ppr', 'stop_ppr', 'start_model', 'stop_model']
 
-sql = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
-      'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
-      ' %s, %s, %s, %s, %s, %s, %s, %s)'
-val1 = 'all'
-val2 = 'manual'
-val3 = 10000
-val4 = 100
-val5 = 100
-val6 = 100
-val7 = 100
-val8 = 100
-val9 = 100
-val10 = 100
-val11 = 100
-val12 = datetime.datetime.strftime(datetime.datetime.now(), "%S")
-# val13 = datetime.datetime.strftime(datetime.datetime.now(), "%M")
-# val14 = datetime.datetime.strftime(datetime.datetime.now(), "%H")
-# val15 = datetime.datetime.strftime(datetime.datetime.now(), "%d")
-# val16 = datetime.datetime.strftime(datetime.datetime.now(), "%m")
-# val17 = datetime.datetime.strftime(datetime.datetime.now(), "%Y")'
-val13 = 11
-val14 = 17
-val15 = 12
-val16 = 9
-val17 = 2020
-my_cursor.execute(sql, (val1, val2, val3, val4, val5, val6,
-                        val7, val8, val9, val10, val11, val12,
-                        val13, val14, val15, val16, val17))
 
-my_db.commit()
+def tot(val):
+    if val != 0:
+        return val
+
+
+def act():
+    query = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
+            'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
+            ' %s, %s, %s, %s, %s, %s, %s, %s)'
+    for i in range(1):
+        m = i + 1
+        for k in range(1):
+            d = k + 1
+            for word in name:
+                name2 = word
+                action2 = 'start'
+                total = 0
+                plan = 0
+                setup = 0
+                auto = 0
+                ppr = 0
+                break1 = 0
+                material = 0
+                task = 0
+                model = 0
+                secs = random.choice(range(0, 60))
+                minutes = random.choice(range(45, 59))
+                hours = 7
+                day = d
+                month = m
+                year = 2020
+                my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
+                                          model, secs, minutes, hours, day, month, year))
+                my_db.commit()
+            # for a in range(random.choice(range(14, 40))):
+            #     name2 = random.choice(name)
+            #     action2 = random.choice(action)
+            #     total = random.choice(range(0, 3200))
+            #     plan = random.choice(range(0, 3200))
+            #     setup = random.choice(range(0, 3200))
+            #     auto = random.choice(range(0, 3200))
+            #     ppr = random.choice(range(0, 3200))
+            #     break1 = random.choice(range(0, 3200))
+            #     material = random.choice(range(0, 3200))
+            #     task = random.choice(range(0, 3200))
+            #     model = random.choice(range(0, 3200))
+            #     secs = random.choice(range(0, 60))
+            #     minutes = random.choice(range(0, 60))
+            #     hours = random.choice(range(0, 23))
+            #     day = d
+            #     month = m
+            #     year = 2020
+            #     my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
+            #                               model, secs, minutes, hours, day, month, year))
+            #     my_db.commit()
+
+
+act()

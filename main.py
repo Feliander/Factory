@@ -123,7 +123,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start plancounter'
+                self.action = 'start_plan_counter'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -141,7 +141,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.plancounter = self.counter
-            self.action = 'stop plancounter'
+            self.action = 'stop_plan_counter'
             try:
                 self.sendtomysql()
             except:
@@ -176,7 +176,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start setup'
+                self.action = 'start_setup'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -194,7 +194,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.setupcounter = self.counter
-            self.action = 'stop setup'
+            self.action = 'stop_setup'
             try:
                 self.sendtomysql()
             except:
@@ -221,7 +221,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start autoserv'
+                self.action = 'start_auto_service'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -239,7 +239,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.autoservcounter = self.counter
-            self.action = 'stop autoserv'
+            self.action = 'stop_auto_service'
             try:
                 self.sendtomysql()
             except:
@@ -266,7 +266,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start break'
+                self.action = 'start_break'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -284,7 +284,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.breakcounter = self.counter
-            self.action = 'stop break'
+            self.action = 'stop_break'
             try:
                 self.sendtomysql()
             except:
@@ -311,7 +311,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start material'
+                self.action = 'start_material'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -329,7 +329,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.matcounter = self.counter
-            self.action = 'stop material'
+            self.action = 'stop_material'
             try:
                 self.sendtomysql()
             except:
@@ -356,7 +356,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start task'
+                self.action = 'start_task'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -374,7 +374,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.taskcounter = self.counter
-            self.action = 'stop task'
+            self.action = 'stop_task'
             try:
                 self.sendtomysql()
             except:
@@ -401,7 +401,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start ppr'
+                self.action = 'start_ppr'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -419,7 +419,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.pprcounter = self.counter
-            self.action = 'stop ppr'
+            self.action = 'stop_ppr'
             try:
                 self.sendtomysql()
             except:
@@ -446,7 +446,7 @@ class MyWin(QtWidgets.QMainWindow):
                 self.counter / 3600, (self.counter / 60) % 60, self.counter % 60))
             self.timer2.start(1000)
             try:
-                self.action = 'start maket'
+                self.action = 'start_model'
                 self.sendtomysql()
             except:
                 QtWidgets.QMessageBox.information(None, 'Message', 'MySQL server connection isn\'t exist!')
@@ -464,7 +464,7 @@ class MyWin(QtWidgets.QMainWindow):
         else:
             self.timer2.stop()
             self.maketcounter = self.counter
-            self.action = 'stop maket'
+            self.action = 'stop_model'
             try:
                 self.sendtomysql()
             except:
