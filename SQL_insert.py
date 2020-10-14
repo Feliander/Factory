@@ -18,70 +18,73 @@ starts = ['start_plan_counter',  'start_setup', 'start_auto_service', 'start_bre
           'start_ppr', 'start_model', ]
 stops = ['stop_plan_counter', 'stop_setup', 'stop_auto_service', 'stop_break', 'stop_material', 'stop_task',
          'stop_ppr', 'stop_model']
-temp = []
+temp1 = []
+temp2 = []
 
 
-def act():
-    query = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
-            'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
-            ' %s, %s, %s, %s, %s, %s, %s, %s)'
-    for i in range(1):
-        m = i + 1
-        for k in range(1):
-            d = k + 1
-            for word in name:
+def days(val):
+    if val == 1 or val == 3 or val == 5 or val == 7 or val == 8 or val == 10 or val == 12:
+        r = range(31)
+        return r
+    elif val == 2:
+        r = range(29)
+        return r
+    else:
+        r = range(30)
+        return r
+
+
+query = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
+        'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
+        ' %s, %s, %s, %s, %s, %s, %s, %s)'
+
+for i in range(1):
+    m = i + 1
+    for k in range(1):
+        d = k + 1
+        for h in range(1):
+            for min in range(60):
                 if random.randint(1, 20) == 1:
-                    name3 = word
-                    name.remove(name3)
-                else:
-                    name2 = word
-                    action2 = 'start'
-                    total = 0
-                    plan = 0
-                    setup = 0
-                    auto = 0
-                    ppr = 0
-                    break1 = 0
-                    material = 0
-                    task = 0
-                    model = 0
-                    secs = random.choice(range(0, 60))
-                    minutes = random.choice(range(45, 59))
-                    hours = 7
                     day = d
                     month = m
                     year = 2020
-                    my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                              model, secs, minutes, hours, day, month, year))
-                    my_db.commit()
-            for a in range(random.choice(range(0, 8))):
-                day = d
-                month = m
-                year = 2020
-                name2 = random.choice(name)
-                action2 = starts[0]
-                if action2 == 'start_plan_counter':
-                    print('Success')
-                    hours = random.choice(range(8, 10))
-                    h1 = hours * 60 * 60
-                    minutes = random.choice(range(0, 59))
-                    m1 = minutes * 60
+                    hours = h
+                    minutes = min
                     secs = random.choice(range(0, 60))
-                    s1 = secs
-                    total = h1 + m1 + s1
-                    plan = h1 + m1 + s1
-                    setup = 0
-                    auto = 0
-                    ppr = 0
-                    break1 = 0
-                    material = 0
-                    task = 0
-                    model = 0
-                    my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                              model, secs, minutes, hours, day, month, year))
-                    my_db.commit()
-                    temp.append(name2)
-                    name.remove(name2)
-
-
-act()
+                    name2 = random.choice(name)
+                    action2 = random.choice(starts)
+                    if action2 == starts[0]:
+                        print('success plan counter')
+                        if hours <= 7 and minutes < 45:
+                            total = ((24 - 21) * 60 * 60 + 30 * 60) + (hours * 60 * 60 + minutes * 60)
+                            plan = ((24 - 21) * 60 * 60 + 30 * 60) + (hours * 60 * 60 + minutes * 60)
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                            temp1.append(name2)
+                            name.remove(name2)
+                        else:
+                            total = (hours * 60 * 60 + minutes * 60) - (7 * 60 * 60 + 45 * 60)
+                            plan = (hours * 60 * 60 + minutes * 60) - (7 * 60 * 60 + 45 * 60)
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query,
+                                              (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
+                                               model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                            temp1.append(name2)
+                            name.remove(name2)
+                        if len(temp1) != 0:
+                            pass

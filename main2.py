@@ -16,15 +16,15 @@ db = pymysql.connect(
 my_cursor = db.cursor()
 
 query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
-         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
          'AND (hours BETWEEN (%s) AND (%s))'
 
 query2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
-         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) ' \
          'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))'
 
 query3 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
-         'SUM(task), SUM(maket) FROM worktime WHERE (year = (%s)) AND (month = (%s)) ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) ' \
          'AND (day BETWEEN (%s) AND (%s))'
 
 
@@ -40,20 +40,16 @@ def prepare_canvas(gra, layout=None):
     return canvas
 
 
-def sql0(query):
-    my_cursor.execute(query)
-
-
-def sql4(query, val1, val2, val3, val4):
-    my_cursor.execute(query, (val1, val2, val3, val4))
-
-
 def sql5(query, val1, val2, val3, val4, val5):
     my_cursor.execute(query, (val1, val2, val3, val4, val5))
 
 
 def sql6(query, val1, val2, val3, val4, val5, val6):
     my_cursor.execute(query, (val1, val2, val3, val4, val5, val6))
+
+
+def sql7(query, val1, val2, val3, val4, val5, val6, val7):
+    my_cursor.execute(query, (val1, val2, val3, val4, val5, val6, val7))
 
 
 def tot(sql):
@@ -146,10 +142,10 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton.setText('Ввести SQL запрос')
         self.dateTimeEdit.setCalendarPopup(True)
         # self.dateTimeEdit.setDateTime(QtCore.QDateTime.currentDateTime())
-        self.dateTimeEdit.setDateTime(QtCore.QDateTime(2020, 9, 12, 12, 30, 00))
+        self.dateTimeEdit.setDateTime(QtCore.QDateTime(2020, 1, 1, 0, 0, 0))
         self.dateTimeEdit_2.setCalendarPopup(True)
         # self.dateTimeEdit_2.setDateTime(QtCore.QDateTime.currentDateTime())
-        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 9, 12, 14, 30, 00))
+        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 1, 1, 23, 59, 0))
 
     def prepare_label(self, txt, total_1=10, plan=10, setup=10, auto_serv=10, ppr1=10, br=10, material=10, task=10,
                       model=10):
@@ -205,108 +201,153 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                           'Никаких данных отображено не будет.')
 
     def act(self, text):
-        if text == 'Участок полностью':
-            self.update()
-            try:
-                self.total()
-            except ValueError:
-                self.zero()
+        self.update()
+        if text == 'Лазер №1':
+            txt = 'Laser1'
+            self.total(txt, text)
+        elif text == 'Лазер №2':
+            txt = 'Laser2'
+            self.total(txt, text)
+        elif text == 'Пробивка №1':
+            txt = 'Punch1'
+            self.total(txt, text)
+        elif text == 'Пробивка №2':
+            txt = 'Punch2'
+            self.total(txt, text)
+        elif text == 'Гибка №1':
+            txt = 'Bend1'
+            self.total(txt, text)
+        elif text == 'Гибка №2':
+            txt = 'Bend2'
+            self.total(txt, text)
+        elif text == 'Сварка №1':
+            txt = 'Weld1'
+            self.total(txt, text)
+        elif text == 'Сварка №2':
+            txt = 'Weld2'
+            self.total(txt, text)
+        elif text == 'Сварочный робот №1':
+            txt = 'Weld_Robot1'
+            self.total(txt, text)
+        elif text == 'Сварочный робот №2':
+            txt = 'Weld_Robot2'
+            self.total(txt, text)
+        elif text == 'Сборка №1':
+            txt = 'Assembly1'
+            self.total(txt, text)
+        elif text == 'Сборка №2':
+            txt = 'Assembly2'
+            self.total(txt, text)
+        elif text == 'Зачистка №1':
+            txt = 'Cleaning1'
+            self.total(txt, text)
+        elif text == 'Зачистка №2':
+            txt = 'Cleaning2'
+            self.total(txt, text)
 
-    def total(self):
-        txt = 'Участок полностью'
+    def total(self, txt, text):
         if self.year() == self.year2():
             if self.month() == self.month2():
                 if self.day() == self.day2():
                     if self.hour() == self.hour2():
                         if self.min() <= self.min2():
-                            t = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            t = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            p = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            p = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            s = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            s = stp(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            a = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            a = asv(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            r = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            r = ppr(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            b = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            b = brk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            m = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            m = mat(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            k = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            k = tsk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            d = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                            d = mkt(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            self.canvas = prepare_canvas(graph(txt, self.check(t), self.check(p), self.check(s),
+                            self.canvas = prepare_canvas(graph(text, self.check(t), self.check(p), self.check(s),
                                                                self.check(a), self.check(r), self.check(b),
                                                                self.check(m), self.check(k), self.check(d)),
                                                          layout=self.composition)
-                            self.prepare_label(txt, self.check(t), self.check(p), self.check(s), self.check(a),
+                            self.prepare_label(text, self.check(t), self.check(p), self.check(s), self.check(a),
                                                self.check(r), self.check(b), self.check(m), self.check(k),
                                                self.check(d))
                             if self.check(t) == 0:
                                 self.update()
                                 self.zero()
                             else:
-                                self.explanation1()
+                                self.explanation1(txt)
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
-                        t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        t3 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        t2 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        t3 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         t = self.check(t1) + self.check(t2) + self.check(t3)
-                        p1 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        p2 = pln(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        p3 = pln(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        p1 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        p2 = pln(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        p3 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         p = self.check(p1) + self.check(p2) + self.check(p3)
-                        s1 = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        s2 = stp(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        s3 = stp(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        s1 = stp(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        s2 = stp(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        s3 = stp(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         s = self.check(s1) + self.check(s2) + self.check(s3)
-                        a1 = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        a2 = asv(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        a3 = asv(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        a1 = asv(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        a2 = asv(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        a3 = asv(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         a = self.check(a1) + self.check(a2) + self.check(a3)
-                        r1 = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        r2 = ppr(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        r3 = ppr(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        r1 = ppr(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        r2 = ppr(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        r3 = ppr(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         r = self.check(r1) + self.check(r2) + self.check(r3)
-                        b1 = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        b2 = brk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        b3 = brk(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        b1 = brk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        b2 = brk(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        b3 = brk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         b = self.check(b1) + self.check(b2) + self.check(b3)
-                        m1 = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        m2 = mat(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        m3 = mat(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        m1 = mat(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        m2 = mat(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        m3 = mat(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         m = self.check(m1) + self.check(m2) + self.check(m3)
-                        k1 = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        k2 = tsk(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        k3 = tsk(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        k1 = tsk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        k2 = tsk(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        k3 = tsk(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         k = self.check(k1) + self.check(k2) + self.check(k3)
-                        d1 = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        d2 = mkt(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1))
-                        d3 = mkt(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
+                        d1 = mkt(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                        d2 = mkt(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                      self.hour2() - 1))
+                        d3 = mkt(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
                         d = self.check(d1) + self.check(d2) + self.check(d3)
-                        self.canvas = prepare_canvas(graph(txt, t, p, s, a, r, b, m, k, d), layout=self.composition)
-                        self.prepare_label(txt, t, p, s, a, r, b, m, k, d)
+                        self.canvas = prepare_canvas(graph(text, t, p, s, a, r, b, m, k, d), layout=self.composition)
+                        self.prepare_label(text, t, p, s, a, r, b, m, k, d)
                         if self.check(t) == 0:
                             self.update()
                             self.zero()
                         else:
-                            self.explanation0()
+                            self.explanation0(txt)
                     else:
                         self.zero2()
                 elif self.day() <= self.day2():
-                    t1 = tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                    t2 = tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, 24))
-                    t3 = tot(sql4(query3, self.year(), self.month(), self.day() + 1, self.day2() - 1))
-                    t4 = tot(sql5(query1, self.year(), self.month(), self.day2(), 0, self.hour2()))
-                    t5 = tot(sql6(query2, self.year(), self.month(), self.day2(), self.hour2(), 0, self.min2()))
+                    t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
+                    t2 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1, 24))
+                    t3 = tot(sql5(query3, txt, self.year(), self.month(), self.day() + 1, self.day2() - 1))
+                    t4 = tot(sql6(query1, txt, self.year(), self.month(), self.day2(), 0, self.hour2()))
+                    t5 = tot(sql7(query2, txt, self.year(), self.month(), self.day2(), self.hour2(), 0, self.min2()))
                     t = self.check(t1) + self.check(t2) + self.check(t3) + self.check(t4) + self.check(t5)
-                    self.canvas = prepare_canvas(graph(txt, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10),
+                    self.canvas = prepare_canvas(graph(text, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10),
                                                  layout=self.composition)
-                    self.prepare_label(txt, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10)
+                    self.prepare_label(text, self.check(t), 10, 10, 10, 10, 10, 10, 10, 10)
                 else:
                     self.zero2()
             else:
@@ -314,10 +355,11 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.zero()
 
-    def explanation0(self):
-        t_1 = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), 60)))
-        t_2 = self.check(tot(sql5(query1, self.year(), self.month(), self.day(), self.hour() + 1, self.hour2() - 1)))
-        t_3 = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2())))
+    def explanation0(self, txt):
+        t_1 = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60)))
+        t_2 = self.check(tot(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
+                                  self.hour2() - 1)))
+        t_3 = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2())))
         t_4 = t_1 + t_2 + t_3
         explanation = 'Запрос разделён на три части.' \
                       '\n\nПервый запрос:' \
@@ -347,8 +389,9 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                       ' или ' + str(t_4) + ' секунд'
         QtWidgets.QMessageBox.information(None, 'Удачный запрос', explanation)
 
-    def explanation1(self):
-        t = self.check(tot(sql6(query2, self.year(), self.month(), self.day(), self.hour(), self.min(), self.min2())))
+    def explanation1(self, txt):
+        t = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
+                                self.min2())))
         explanation = 'Запрос состоит из одной части.' \
                       '\n\nВыбрать всё необходимое где дата равна:' \
                       '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
