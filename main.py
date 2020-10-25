@@ -488,7 +488,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.sql = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoserv, ppr, break, material,' \
                    'task, maket, secs, minutes, hours, day, month, year) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,' \
                    ' %s, %s, %s, %s, %s, %s, %s, %s)'
-        self.val1 = 'Laser L77'
+        self.val1 = 'Laser1'
         self.val2 = self.action
         self.val3 = self.my_counter
         self.val4 = self.plancounter
