@@ -71,7 +71,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = ((hours1 * 60 * 60) + (minutes1 * 60) + secs1) - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -101,11 +101,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -115,8 +115,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -126,10 +126,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -139,8 +139,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -154,8 +154,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -175,11 +175,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -189,8 +189,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -200,10 +200,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -213,8 +213,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -227,8 +227,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -249,11 +249,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -263,8 +263,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -274,36 +274,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -324,10 +324,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -337,8 +337,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -348,29 +348,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[1]:
                                 action3 = stops[1]
                                 print(name3 + ' ' + action3)
@@ -379,7 +379,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -409,11 +409,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -423,8 +423,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -434,10 +434,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -447,8 +447,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -462,8 +462,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -483,11 +483,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -497,8 +497,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -508,10 +508,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -521,8 +521,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -535,8 +535,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -557,11 +557,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -571,8 +571,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -582,36 +582,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -632,10 +632,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -645,8 +645,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -656,29 +656,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[2]:
                                 action3 = stops[2]
                                 print(name3 + ' ' + action3)
@@ -687,7 +687,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -717,11 +717,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -731,8 +731,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -742,10 +742,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -755,8 +755,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -770,8 +770,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -791,11 +791,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -805,8 +805,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -816,10 +816,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -829,8 +829,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -843,8 +843,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -865,11 +865,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -879,8 +879,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -890,36 +890,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -940,10 +940,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -953,8 +953,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -964,29 +964,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[3]:
                                 action3 = stops[3]
                                 print(name3 + ' ' + action3)
@@ -995,7 +995,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -1025,11 +1025,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1039,8 +1039,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1050,10 +1050,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1063,8 +1063,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1078,8 +1078,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1099,11 +1099,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1113,8 +1113,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1124,10 +1124,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1137,8 +1137,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1151,8 +1151,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -1173,11 +1173,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -1187,8 +1187,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -1198,36 +1198,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1248,10 +1248,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1261,8 +1261,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -1272,29 +1272,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[4]:
                                 action3 = stops[4]
                                 print(name3 + ' ' + action3)
@@ -1303,7 +1303,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -1333,11 +1333,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1347,8 +1347,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1358,10 +1358,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1371,8 +1371,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1386,8 +1386,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1407,11 +1407,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1421,8 +1421,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1432,10 +1432,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1445,8 +1445,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1459,8 +1459,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -1481,11 +1481,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -1495,8 +1495,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -1506,36 +1506,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1556,10 +1556,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1569,8 +1569,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -1580,29 +1580,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[5]:
                                 action3 = stops[5]
                                 print(name3 + ' ' + action3)
@@ -1611,7 +1611,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -1641,11 +1641,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1655,8 +1655,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1666,10 +1666,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1679,8 +1679,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1694,8 +1694,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1715,11 +1715,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1729,8 +1729,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1740,10 +1740,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1753,8 +1753,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1767,8 +1767,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -1789,11 +1789,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -1803,8 +1803,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -1814,36 +1814,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1864,10 +1864,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -1877,8 +1877,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -1888,29 +1888,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[6]:
                                 action3 = stops[6]
                                 print(name3 + ' ' + action3)
@@ -1919,7 +1919,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -1949,11 +1949,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1963,8 +1963,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -1974,10 +1974,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -1987,8 +1987,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2002,8 +2002,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2023,11 +2023,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2037,8 +2037,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2048,10 +2048,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2061,8 +2061,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2075,8 +2075,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -2097,11 +2097,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -2111,8 +2111,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -2122,36 +2122,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -2172,10 +2172,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -2185,8 +2185,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -2196,29 +2196,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                             elif action == starts[7]:
                                 action3 = stops[7]
                                 print(name3 + ' ' + action3)
@@ -2227,7 +2227,7 @@ for i in range(1):
                                 secs1 = int(total % 60)
                                 minutes1 = int(total / 60 % 60)
                                 hours1 = int(total / 3600)
-                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                 if secs1 >= 60 or minutes1 >= 60:
                                     if secs1 >= 60:
                                         print('secs more than 60')
@@ -2257,11 +2257,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2271,8 +2271,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2282,10 +2282,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                hours4 = int(total3 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2295,8 +2295,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2310,8 +2310,8 @@ for i in range(1):
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                 secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                minutes2 = int(total1 / 60 % 60) + 1
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2331,11 +2331,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60) - 60
+                                                minutes3 = int(total2 / 60 % 60) + 1
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2345,8 +2345,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2356,10 +2356,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60) - 60
+                                                minutes4 = int(total3 / 60 % 60) + 1
+                                                hours4 = int(total3 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2369,8 +2369,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2383,8 +2383,8 @@ for i in range(1):
                                         print('only minutes more than 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60) - 60
                                             hours2 = int(total1 / 3600) + 1
                                             plan = time
                                             setup = 0
@@ -2405,11 +2405,11 @@ for i in range(1):
                                             temp1.pop(name3)
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
-                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                        elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60) - 60
+                                            hours3 = int(total2 / 3600) + 1
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -2419,8 +2419,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -2430,36 +2430,36 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60) - 60
+                                            hours4 = int(total3 / 3600) + 1
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 else:
                                     print('neither secs neither minutes aren\'t more then 60')
                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        secs2 = int(total1 % 60)
+                                        minutes2 = int(total1 / 60 % 60)
+                                        hours2 = int(total1 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -2480,10 +2480,10 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                        secs2 = int(total1 % 60) - 60
-                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                        hours2 = int(total1 / 3600) + 1
+                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                        secs3 = int(total2 % 60)
+                                        minutes3 = int(total2 / 60 % 60)
+                                        hours3 = int(total2 / 3600)
                                         plan = time
                                         setup = 0
                                         auto = 0
@@ -2493,8 +2493,8 @@ for i in range(1):
                                         task = 0
                                         model = 0
                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                  break1, material, task, model, secs2,
-                                                                  minutes2, hours2, day, month, year))
+                                                                  break1, material, task, model, secs3,
+                                                                  minutes3, hours3, day, month, year))
                                         my_db.commit()
                                         name.append(name3)
                                         temp3.remove(name3)
@@ -2504,29 +2504,29 @@ for i in range(1):
                                         print('dict temp1 deleted: ' + name3)
                                         print(temp1)
                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
-                                                plan = time
-                                                setup = 0
-                                                auto = 0
-                                                ppr = 0
-                                                break1 = 0
-                                                material = 0
-                                                task = 0
-                                                model = 0
-                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
-                                                my_db.commit()
-                                                name.append(name3)
-                                                temp3.remove(name3)
-                                                print('list temp3 deleted: ' + name3)
-                                                print(temp3)
-                                                temp1.pop(name3)
-                                                print('dict temp1 deleted: ' + name3)
-                                                print(temp1)
+                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                        secs4 = int(total3 % 60)
+                                        minutes4 = int(total3 / 60 % 60)
+                                        hours4 = int(total3 / 3600)
+                                        plan = time
+                                        setup = 0
+                                        auto = 0
+                                        ppr = 0
+                                        break1 = 0
+                                        material = 0
+                                        task = 0
+                                        model = 0
+                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                  break1, material, task, model, secs4,
+                                                                  minutes4, hours4, day, month, year))
+                                        my_db.commit()
+                                        name.append(name3)
+                                        temp3.remove(name3)
+                                        print('list temp3 deleted: ' + name3)
+                                        print(temp3)
+                                        temp1.pop(name3)
+                                        print('dict temp1 deleted: ' + name3)
+                                        print(temp1)
                 elif h == 7:
                     if len(name) == 14:
                         for word in name:
@@ -2593,7 +2593,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = ((hours1 * 60 * 60) + (minutes1 * 60) + secs1) - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -2623,11 +2623,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2637,8 +2637,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2648,10 +2648,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2661,8 +2661,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2676,8 +2676,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2697,11 +2697,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2711,8 +2711,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2722,10 +2722,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2735,8 +2735,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2749,8 +2749,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -2771,11 +2771,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -2785,8 +2785,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -2796,36 +2796,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -2846,10 +2846,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -2859,8 +2859,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -2870,29 +2870,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[1]:
                                     action3 = stops[1]
                                     print(name3 + ' ' + action3)
@@ -2901,7 +2901,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -2931,11 +2931,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2945,8 +2945,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2956,10 +2956,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -2969,8 +2969,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -2984,8 +2984,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3005,11 +3005,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3019,8 +3019,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3030,10 +3030,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3043,8 +3043,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3057,8 +3057,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -3079,11 +3079,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -3093,8 +3093,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -3104,36 +3104,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3154,10 +3154,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3167,8 +3167,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -3178,29 +3178,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[2]:
                                     action3 = stops[2]
                                     print(name3 + ' ' + action3)
@@ -3209,7 +3209,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -3239,11 +3239,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3253,8 +3253,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3264,10 +3264,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3277,8 +3277,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3292,8 +3292,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3313,11 +3313,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3327,8 +3327,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3338,10 +3338,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3351,8 +3351,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3365,8 +3365,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -3387,11 +3387,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -3401,8 +3401,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -3412,36 +3412,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3462,10 +3462,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3475,8 +3475,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -3486,29 +3486,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[3]:
                                     action3 = stops[3]
                                     print(name3 + ' ' + action3)
@@ -3517,7 +3517,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -3547,11 +3547,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3561,8 +3561,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3572,10 +3572,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3585,8 +3585,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3600,8 +3600,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3621,11 +3621,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3635,8 +3635,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3646,10 +3646,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3659,8 +3659,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3673,8 +3673,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -3695,11 +3695,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -3709,8 +3709,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -3720,36 +3720,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3770,10 +3770,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -3783,8 +3783,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -3794,29 +3794,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[4]:
                                     action3 = stops[4]
                                     print(name3 + ' ' + action3)
@@ -3825,7 +3825,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -3855,11 +3855,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3869,8 +3869,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3880,10 +3880,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3893,8 +3893,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3908,8 +3908,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3929,11 +3929,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3943,8 +3943,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3954,10 +3954,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -3967,8 +3967,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -3981,8 +3981,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -4003,11 +4003,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -4017,8 +4017,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -4028,36 +4028,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4078,10 +4078,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4091,8 +4091,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -4102,29 +4102,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[5]:
                                     action3 = stops[5]
                                     print(name3 + ' ' + action3)
@@ -4133,7 +4133,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -4163,11 +4163,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4177,8 +4177,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4188,10 +4188,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4201,8 +4201,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4216,8 +4216,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4237,11 +4237,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4251,8 +4251,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4262,10 +4262,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4275,8 +4275,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4289,8 +4289,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -4311,11 +4311,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -4325,8 +4325,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -4336,36 +4336,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4386,10 +4386,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4399,8 +4399,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -4410,29 +4410,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[6]:
                                     action3 = stops[6]
                                     print(name3 + ' ' + action3)
@@ -4441,7 +4441,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -4471,11 +4471,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4485,8 +4485,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4496,10 +4496,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4509,8 +4509,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4524,8 +4524,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4545,11 +4545,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4559,8 +4559,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4570,10 +4570,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4583,8 +4583,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4597,8 +4597,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -4619,11 +4619,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -4633,8 +4633,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -4644,36 +4644,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4694,10 +4694,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -4707,8 +4707,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -4718,29 +4718,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[7]:
                                     action3 = stops[7]
                                     print(name3 + ' ' + action3)
@@ -4749,7 +4749,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -4779,11 +4779,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4793,8 +4793,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4804,10 +4804,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4817,8 +4817,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4832,8 +4832,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4853,11 +4853,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4867,8 +4867,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4878,10 +4878,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -4891,8 +4891,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -4905,8 +4905,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -4927,11 +4927,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -4941,8 +4941,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -4952,36 +4952,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5002,10 +5002,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5015,8 +5015,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -5026,10 +5026,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (20 * 60 * 60) + (30 * 60)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5039,8 +5039,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -5115,7 +5115,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = ((hours1 * 60 * 60) + (minutes1 * 60) + secs1) - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -5145,11 +5145,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5159,8 +5159,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5170,10 +5170,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5183,8 +5183,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5198,8 +5198,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5219,11 +5219,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5233,8 +5233,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5244,10 +5244,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5257,8 +5257,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5271,8 +5271,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -5293,11 +5293,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -5307,8 +5307,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -5318,36 +5318,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5368,10 +5368,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5381,8 +5381,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -5392,29 +5392,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[1]:
                                     action3 = stops[1]
                                     print(name3 + ' ' + action3)
@@ -5423,7 +5423,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -5453,11 +5453,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5467,8 +5467,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5478,10 +5478,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5491,8 +5491,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5506,8 +5506,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5527,11 +5527,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5541,8 +5541,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5552,10 +5552,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5565,8 +5565,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5579,8 +5579,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -5601,11 +5601,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -5615,8 +5615,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -5626,36 +5626,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5676,10 +5676,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5689,8 +5689,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -5700,29 +5700,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[2]:
                                     action3 = stops[2]
                                     print(name3 + ' ' + action3)
@@ -5731,7 +5731,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -5761,11 +5761,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5775,8 +5775,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5786,10 +5786,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5799,8 +5799,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5814,8 +5814,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5835,11 +5835,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5849,8 +5849,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5860,10 +5860,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -5873,8 +5873,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -5887,8 +5887,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -5909,11 +5909,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -5923,8 +5923,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -5934,36 +5934,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5984,10 +5984,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -5997,8 +5997,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -6008,29 +6008,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[3]:
                                     action3 = stops[3]
                                     print(name3 + ' ' + action3)
@@ -6039,7 +6039,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -6069,11 +6069,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6083,8 +6083,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6094,10 +6094,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6107,8 +6107,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6122,8 +6122,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6143,11 +6143,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6157,8 +6157,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6168,10 +6168,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6181,8 +6181,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6195,8 +6195,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -6217,11 +6217,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -6231,8 +6231,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -6242,36 +6242,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6292,10 +6292,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6305,8 +6305,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -6316,29 +6316,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[4]:
                                     action3 = stops[4]
                                     print(name3 + ' ' + action3)
@@ -6347,7 +6347,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -6377,11 +6377,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6391,8 +6391,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6402,10 +6402,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6415,8 +6415,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6430,8 +6430,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6451,11 +6451,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6465,8 +6465,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6476,10 +6476,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6489,8 +6489,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6503,8 +6503,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -6525,11 +6525,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -6539,8 +6539,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -6550,36 +6550,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6600,10 +6600,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6613,8 +6613,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -6624,29 +6624,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[5]:
                                     action3 = stops[5]
                                     print(name3 + ' ' + action3)
@@ -6655,7 +6655,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -6685,11 +6685,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6699,8 +6699,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6710,10 +6710,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6723,8 +6723,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6738,8 +6738,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6759,11 +6759,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6773,8 +6773,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6784,10 +6784,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -6797,8 +6797,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -6811,8 +6811,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -6833,11 +6833,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -6847,8 +6847,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -6858,36 +6858,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6908,10 +6908,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -6921,8 +6921,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -6932,29 +6932,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[6]:
                                     action3 = stops[6]
                                     print(name3 + ' ' + action3)
@@ -6963,7 +6963,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -6993,11 +6993,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7007,8 +7007,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7018,10 +7018,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7031,8 +7031,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7046,8 +7046,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7067,11 +7067,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7081,8 +7081,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7092,10 +7092,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7105,8 +7105,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7119,8 +7119,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -7141,11 +7141,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -7155,8 +7155,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -7166,36 +7166,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -7216,10 +7216,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -7229,8 +7229,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -7240,29 +7240,29 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
+                                            plan = time
+                                            setup = 0
+                                            auto = 0
+                                            ppr = 0
+                                            break1 = 0
+                                            material = 0
+                                            task = 0
+                                            model = 0
+                                            my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
+                                            my_db.commit()
+                                            name.append(name3)
+                                            temp3.remove(name3)
+                                            print('list temp3 deleted: ' + name3)
+                                            print(temp3)
+                                            temp1.pop(name3)
+                                            print('dict temp1 deleted: ' + name3)
+                                            print(temp1)
                                 elif action == starts[7]:
                                     action3 = stops[7]
                                     print(name3 + ' ' + action3)
@@ -7271,7 +7271,7 @@ for i in range(1):
                                     secs1 = int(total % 60)
                                     minutes1 = int(total / 60 % 60)
                                     hours1 = int(total / 3600)
-                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                    time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                     if secs1 >= 60 or minutes1 >= 60:
                                         if secs1 >= 60:
                                             print('secs more than 60')
@@ -7301,11 +7301,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7315,8 +7315,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7326,10 +7326,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                    hours4 = int(total3 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7339,8 +7339,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7354,8 +7354,8 @@ for i in range(1):
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                     secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    minutes2 = int(total1 / 60 % 60) + 1
+                                                    hours2 = int(total1 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7375,11 +7375,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60) - 60
+                                                    minutes3 = int(total2 / 60 % 60) + 1
+                                                    hours3 = int(total2 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7389,8 +7389,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7400,10 +7400,10 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60) - 60
+                                                    minutes4 = int(total3 / 60 % 60) + 1
+                                                    hours4 = int(total3 / 3600)
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7413,8 +7413,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7427,8 +7427,8 @@ for i in range(1):
                                             print('only minutes more than 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60) - 60
                                                 hours2 = int(total1 / 3600) + 1
                                                 plan = time
                                                 setup = 0
@@ -7449,11 +7449,11 @@ for i in range(1):
                                                 temp1.pop(name3)
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
-                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                            elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60) - 60
+                                                hours3 = int(total2 / 3600) + 1
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -7463,8 +7463,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -7474,36 +7474,36 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
-                                                    plan = time
-                                                    setup = 0
-                                                    auto = 0
-                                                    ppr = 0
-                                                    break1 = 0
-                                                    material = 0
-                                                    task = 0
-                                                    model = 0
-                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
-                                                    my_db.commit()
-                                                    name.append(name3)
-                                                    temp3.remove(name3)
-                                                    print('list temp3 deleted: ' + name3)
-                                                    print(temp3)
-                                                    temp1.pop(name3)
-                                                    print('dict temp1 deleted: ' + name3)
-                                                    print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60) - 60
+                                                hours4 = int(total3 / 3600) + 1
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     else:
                                         print('neither secs neither minutes aren\'t more then 60')
                                         if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                             total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            secs2 = int(total1 % 60)
+                                            minutes2 = int(total1 / 60 % 60)
+                                            hours2 = int(total1 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -7524,10 +7524,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total2 = total + (7 * 60 * 60 + 45 * 60)
+                                            secs3 = int(total2 % 60)
+                                            minutes3 = int(total2 / 60 % 60)
+                                            hours3 = int(total2 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -7537,8 +7537,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs3,
+                                                                      minutes3, hours3, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -7548,10 +7548,10 @@ for i in range(1):
                                             print('dict temp1 deleted: ' + name3)
                                             print(temp1)
                                         elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                            total1 = total + (20 * 60 * 60) + (30 * 60)
-                                            secs2 = int(total1 % 60) - 60
-                                            minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                            hours2 = int(total1 / 3600) + 1
+                                            total3 = total + (20 * 60 * 60 + 30 * 60)
+                                            secs4 = int(total3 % 60)
+                                            minutes4 = int(total3 / 60 % 60)
+                                            hours4 = int(total3 / 3600)
                                             plan = time
                                             setup = 0
                                             auto = 0
@@ -7561,8 +7561,8 @@ for i in range(1):
                                             task = 0
                                             model = 0
                                             my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                      break1, material, task, model, secs2,
-                                                                      minutes2, hours2, day, month, year))
+                                                                      break1, material, task, model, secs4,
+                                                                      minutes4, hours4, day, month, year))
                                             my_db.commit()
                                             name.append(name3)
                                             temp3.remove(name3)
@@ -7658,7 +7658,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = ((hours1 * 60 * 60) + (minutes1 * 60) + secs1) - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -7688,11 +7688,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -7702,8 +7702,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -7713,10 +7713,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -7726,8 +7726,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -7741,8 +7741,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -7762,11 +7762,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -7776,8 +7776,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -7787,10 +7787,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -7800,8 +7800,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -7814,8 +7814,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -7836,11 +7836,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -7850,8 +7850,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -7861,36 +7861,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -7911,10 +7911,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -7924,8 +7924,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -7935,29 +7935,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[1]:
                                         action3 = stops[1]
                                         print(name3 + ' ' + action3)
@@ -7966,7 +7966,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -7996,11 +7996,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8010,8 +8010,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8021,10 +8021,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8034,8 +8034,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8049,8 +8049,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8070,11 +8070,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8084,8 +8084,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8095,10 +8095,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8108,8 +8108,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8122,8 +8122,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -8144,11 +8144,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -8158,8 +8158,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -8169,36 +8169,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8219,10 +8219,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8232,8 +8232,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -8243,29 +8243,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[2]:
                                         action3 = stops[2]
                                         print(name3 + ' ' + action3)
@@ -8274,7 +8274,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -8304,11 +8304,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8318,8 +8318,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8329,10 +8329,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8342,8 +8342,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8357,8 +8357,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8378,11 +8378,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8392,8 +8392,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8403,10 +8403,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8416,8 +8416,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8430,8 +8430,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -8452,11 +8452,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -8466,8 +8466,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -8477,36 +8477,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8527,10 +8527,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8540,8 +8540,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -8551,29 +8551,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[3]:
                                         action3 = stops[3]
                                         print(name3 + ' ' + action3)
@@ -8582,7 +8582,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -8612,11 +8612,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8626,8 +8626,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8637,10 +8637,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8650,8 +8650,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8665,8 +8665,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8686,11 +8686,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8700,8 +8700,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8711,10 +8711,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8724,8 +8724,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8738,8 +8738,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -8760,11 +8760,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -8774,8 +8774,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -8785,36 +8785,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8835,10 +8835,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -8848,8 +8848,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -8859,29 +8859,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[4]:
                                         action3 = stops[4]
                                         print(name3 + ' ' + action3)
@@ -8890,7 +8890,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -8920,11 +8920,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8934,8 +8934,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8945,10 +8945,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8958,8 +8958,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -8973,8 +8973,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -8994,11 +8994,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9008,8 +9008,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9019,10 +9019,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9032,8 +9032,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9046,8 +9046,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -9068,11 +9068,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -9082,8 +9082,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -9093,36 +9093,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9143,10 +9143,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9156,8 +9156,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -9167,29 +9167,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[5]:
                                         action3 = stops[5]
                                         print(name3 + ' ' + action3)
@@ -9198,7 +9198,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -9228,11 +9228,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9242,8 +9242,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9253,10 +9253,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9266,8 +9266,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9281,8 +9281,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9302,11 +9302,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9316,8 +9316,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9327,10 +9327,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9340,8 +9340,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9354,8 +9354,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -9376,11 +9376,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -9390,8 +9390,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -9401,36 +9401,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9451,10 +9451,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9464,8 +9464,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -9475,29 +9475,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[6]:
                                         action3 = stops[6]
                                         print(name3 + ' ' + action3)
@@ -9506,7 +9506,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -9536,11 +9536,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9550,8 +9550,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9561,10 +9561,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9574,8 +9574,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9589,8 +9589,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9610,11 +9610,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9624,8 +9624,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9635,10 +9635,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9648,8 +9648,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9662,8 +9662,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -9684,11 +9684,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -9698,8 +9698,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -9709,36 +9709,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9759,10 +9759,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -9772,8 +9772,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -9783,29 +9783,29 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                     elif action == starts[7]:
                                         action3 = stops[7]
                                         print(name3 + ' ' + action3)
@@ -9814,7 +9814,7 @@ for i in range(1):
                                         secs1 = int(total % 60)
                                         minutes1 = int(total / 60 % 60)
                                         hours1 = int(total / 3600)
-                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1
+                                        time2 = (hours1 * 60 * 60) + (minutes1 * 60) + secs1 - (3 * 60 * 60 + 30 * 60)
                                         if secs1 >= 60 or minutes1 >= 60:
                                             if secs1 >= 60:
                                                 print('secs more than 60')
@@ -9844,11 +9844,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1 - 60
+                                                        hours3 = int(total2 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9858,8 +9858,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9869,10 +9869,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1 - 60
+                                                        hours4 = int(total3 / 3600) + 1
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9882,8 +9882,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9897,8 +9897,8 @@ for i in range(1):
                                                     if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                         total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
                                                         secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        minutes2 = int(total1 / 60 % 60) + 1
+                                                        hours2 = int(total1 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9918,11 +9918,11 @@ for i in range(1):
                                                         temp1.pop(name3)
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
-                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                    elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                        total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                        secs3 = int(total2 % 60) - 60
+                                                        minutes3 = int(total2 / 60 % 60) + 1
+                                                        hours3 = int(total2 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9932,8 +9932,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs3,
+                                                                                  minutes3, hours3, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9943,10 +9943,10 @@ for i in range(1):
                                                         print('dict temp1 deleted: ' + name3)
                                                         print(temp1)
                                                     elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
+                                                        total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                        secs4 = int(total3 % 60) - 60
+                                                        minutes4 = int(total3 / 60 % 60) + 1
+                                                        hours4 = int(total3 / 3600)
                                                         plan = time
                                                         setup = 0
                                                         auto = 0
@@ -9956,8 +9956,8 @@ for i in range(1):
                                                         task = 0
                                                         model = 0
                                                         my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
+                                                                                  break1, material, task, model, secs4,
+                                                                                  minutes4, hours4, day, month, year))
                                                         my_db.commit()
                                                         name.append(name3)
                                                         temp3.remove(name3)
@@ -9970,8 +9970,8 @@ for i in range(1):
                                                 print('only minutes more than 60')
                                                 if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                     total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
+                                                    secs2 = int(total1 % 60)
+                                                    minutes2 = int(total1 / 60 % 60) - 60
                                                     hours2 = int(total1 / 3600) + 1
                                                     plan = time
                                                     setup = 0
@@ -9992,11 +9992,11 @@ for i in range(1):
                                                     temp1.pop(name3)
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
-                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                    total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                    secs2 = int(total1 % 60) - 60
-                                                    minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                    hours2 = int(total1 / 3600) + 1
+                                                elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60):
+                                                    total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                    secs3 = int(total2 % 60)
+                                                    minutes3 = int(total2 / 60 % 60) - 60
+                                                    hours3 = int(total2 / 3600) + 1
                                                     plan = time
                                                     setup = 0
                                                     auto = 0
@@ -10006,8 +10006,8 @@ for i in range(1):
                                                     task = 0
                                                     model = 0
                                                     my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                              break1, material, task, model, secs2,
-                                                                              minutes2, hours2, day, month, year))
+                                                                              break1, material, task, model, secs3,
+                                                                              minutes3, hours3, day, month, year))
                                                     my_db.commit()
                                                     name.append(name3)
                                                     temp3.remove(name3)
@@ -10017,36 +10017,36 @@ for i in range(1):
                                                     print('dict temp1 deleted: ' + name3)
                                                     print(temp1)
                                                 elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                    total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                    secs4 = int(total3 % 60)
+                                                    minutes4 = int(total3 / 60 % 60) - 60
+                                                    hours4 = int(total3 / 3600) + 1
+                                                    plan = time
+                                                    setup = 0
+                                                    auto = 0
+                                                    ppr = 0
+                                                    break1 = 0
+                                                    material = 0
+                                                    task = 0
+                                                    model = 0
+                                                    my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                              break1, material, task, model, secs4,
+                                                                              minutes4, hours4, day, month, year))
+                                                    my_db.commit()
+                                                    name.append(name3)
+                                                    temp3.remove(name3)
+                                                    print('list temp3 deleted: ' + name3)
+                                                    print(temp3)
+                                                    temp1.pop(name3)
+                                                    print('dict temp1 deleted: ' + name3)
+                                                    print(temp1)
                                         else:
                                             print('neither secs neither minutes aren\'t more then 60')
                                             if time2 < (7 * 60 * 60) + (45 * 60) + 0:
                                                 total1 = total - ((3 * 60 * 60) + (30 * 60) + 0)
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                secs2 = int(total1 % 60)
+                                                minutes2 = int(total1 / 60 % 60)
+                                                hours2 = int(total1 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -10067,10 +10067,10 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif (7 * 60 * 60) + (45 * 60) + 0 < time2 < (20 * 60 * 60) + (30 * 60) + 0:
-                                                total1 = total + (7 * 60 * 60) + (45 * 60) + 0
-                                                secs2 = int(total1 % 60) - 60
-                                                minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                hours2 = int(total1 / 3600) + 1
+                                                total2 = total + (7 * 60 * 60 + 45 * 60)
+                                                secs3 = int(total2 % 60)
+                                                minutes3 = int(total2 / 60 % 60)
+                                                hours3 = int(total2 / 3600)
                                                 plan = time
                                                 setup = 0
                                                 auto = 0
@@ -10080,8 +10080,8 @@ for i in range(1):
                                                 task = 0
                                                 model = 0
                                                 my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                          break1, material, task, model, secs2,
-                                                                          minutes2, hours2, day, month, year))
+                                                                          break1, material, task, model, secs3,
+                                                                          minutes3, hours3, day, month, year))
                                                 my_db.commit()
                                                 name.append(name3)
                                                 temp3.remove(name3)
@@ -10091,28 +10091,28 @@ for i in range(1):
                                                 print('dict temp1 deleted: ' + name3)
                                                 print(temp1)
                                             elif time2 > (20 * 60 * 60) + (30 * 60) + 0:
-                                                        total1 = total + (20 * 60 * 60) + (30 * 60)
-                                                        secs2 = int(total1 % 60) - 60
-                                                        minutes2 = int(total1 / 60 % 60) + 1 - 60
-                                                        hours2 = int(total1 / 3600) + 1
-                                                        plan = time
-                                                        setup = 0
-                                                        auto = 0
-                                                        ppr = 0
-                                                        break1 = 0
-                                                        material = 0
-                                                        task = 0
-                                                        model = 0
-                                                        my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
-                                                                                  break1, material, task, model, secs2,
-                                                                                  minutes2, hours2, day, month, year))
-                                                        my_db.commit()
-                                                        name.append(name3)
-                                                        temp3.remove(name3)
-                                                        print('list temp3 deleted: ' + name3)
-                                                        print(temp3)
-                                                        temp1.pop(name3)
-                                                        print('dict temp1 deleted: ' + name3)
-                                                        print(temp1)
+                                                total3 = total + (20 * 60 * 60 + 30 * 60)
+                                                secs4 = int(total3 % 60)
+                                                minutes4 = int(total3 / 60 % 60)
+                                                hours4 = int(total3 / 3600)
+                                                plan = time
+                                                setup = 0
+                                                auto = 0
+                                                ppr = 0
+                                                break1 = 0
+                                                material = 0
+                                                task = 0
+                                                model = 0
+                                                my_cursor.execute(query, (name3, action3, total, plan, setup, auto, ppr,
+                                                                          break1, material, task, model, secs4,
+                                                                          minutes4, hours4, day, month, year))
+                                                my_db.commit()
+                                                name.append(name3)
+                                                temp3.remove(name3)
+                                                print('list temp3 deleted: ' + name3)
+                                                print(temp3)
+                                                temp1.pop(name3)
+                                                print('dict temp1 deleted: ' + name3)
+                                                print(temp1)
                                 else:
                                     pass
