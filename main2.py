@@ -15,15 +15,15 @@ db = pymysql.connect(
 )
 my_cursor = db.cursor()
 
-query1 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+query1 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
          'AND (hours BETWEEN (%s) AND (%s))'
 
-query2 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+query2 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) ' \
          'AND (day = (%s)) AND (hours = (%s)) AND (minutes BETWEEN (%s) AND (%s))'
 
-query3 = 'SELECT SUM(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
+query3 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) ' \
          'AND (day BETWEEN (%s) AND (%s))'
 
@@ -55,7 +55,10 @@ def sql7(query, val1, val2, val3, val4, val5, val6, val7):
 def tot(sql):
     result = my_cursor.fetchall()
     my_result = (result[0])
-    total1 = my_result.get('SUM(totaltime)')
+    t1 = ()
+    t2 = ()
+    t3 = ()
+    total1 = my_result.get('MAX(totaltime)')
     return total1
 
 
