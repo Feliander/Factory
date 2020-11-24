@@ -16,7 +16,7 @@ db = pymysql.connect(
 my_cursor = db.cursor()
 
 query1 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
-         'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) ' \
+         'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) '\
          'AND (hours BETWEEN (%s) AND (%s))'
 
 query2 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
@@ -26,6 +26,12 @@ query2 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(p
 query3 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) ' \
          'AND (day BETWEEN (%s) AND (%s))'
+
+query4 = 'SELECT MAX(totaltime) from worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) '\
+         'AND (hours = (%s)) AND (minutes between (%s) and (%s))'
+
+query5 = 'SELECT MAX(totaltime) from worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) '\
+         'AND (hours between (%s) and (%s))'
 
 
 class MyMplCanvas(FigureCanvasQTAgg):
@@ -55,9 +61,6 @@ def sql7(query, val1, val2, val3, val4, val5, val6, val7):
 def tot(sql):
     result = my_cursor.fetchall()
     my_result = (result[0])
-    t1 = ()
-    t2 = ()
-    t3 = ()
     total1 = my_result.get('MAX(totaltime)')
     return total1
 
@@ -256,6 +259,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                         if self.min() <= self.min2():
                             t = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
+                            if self.hour() <= 8:
+                                t -= 12600
                             p = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
                             s = stp(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
@@ -272,13 +277,14 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                          self.min2()))
                             d = mkt(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
-                            self.canvas = prepare_canvas(graph(text, self.check(t), self.check(p), self.check(s),
-                                                               self.check(a), self.check(r), self.check(b),
-                                                               self.check(m), self.check(k), self.check(d)),
-                                                         layout=self.composition)
-                            self.prepare_label(text, self.check(t), self.check(p), self.check(s), self.check(a),
-                                               self.check(r), self.check(b), self.check(m), self.check(k),
-                                               self.check(d))
+                            self.canvas = prepare_canvas(graph(text, self.check(t),
+                                                               self.check(p), self.check(s), self.check(a),
+                                                               self.check(r), self.check(b), self.check(m),
+                                                               self.check(k), self.check(d)), layout=self.composition)
+                            self.prepare_label(text, self.check(t),
+                                               self.check(p),
+                                               self.check(s), self.check(a), self.check(r), self.check(b),
+                                               self.check(m), self.check(k), self.check(d))
                             if self.check(t) == 0:
                                 self.update()
                                 self.zero()
@@ -287,11 +293,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
-                        t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
-                        t2 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
-                                      self.hour2() - 1))
-                        t3 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2()))
-                        t = self.check(t1) + self.check(t2) + self.check(t3)
+                        t = self.ttl(txt, self.hour(), self.hour2(), self.min(), self.min2())
                         p1 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
                         p2 = pln(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
                                       self.hour2() - 1))
@@ -418,6 +420,25 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         if val is None:
             val = 0
         return val
+
+    def ttl(self, txt, h1, h2, m1, m2):
+        if 0 <= h1 <= 8 and 0 <= h2 <= 8:
+            # t1 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), 0, h1))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
+            # t3 = self.check(t1) + self.check(t2)
+            print(t2)
+            if self.check(t2) > 0:
+                t2 -= 12600
+                print(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+            print(t4)
+            if self.check(t4) > 0:
+                t4 -= 12600
+                print(t4)
+            t = self.check(t4) - self.check(t2)
+            if t < 0:
+                t *= -1
+            return t
 
     def push(self):
         QtWidgets.QMessageBox.information(None, 'year', str(self.year()))
