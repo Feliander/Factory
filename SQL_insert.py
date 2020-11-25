@@ -602,6 +602,59 @@ for i in range(1):
                                     temp1.pop(name3)
                         else:
                             pass
+                elif min == 0 or min == 15 or min == 30 or min == 45:
+                    for word in name:
+                        day = d
+                        month = m
+                        year = 2020
+                        hours = h
+                        minutes = min
+                        secs = random.choice(range(0, 60))
+                        time = (hours * 60 * 60) + (minutes * 60) + secs
+                        name2 = word
+                        action2 = 'checkpoint'
+                        print('------- ' + str(word) + ' checkpoint')
+                        print(str(h) + ':' + str(min))
+                        if time < (7 * 60 * 60) + (45 * 60) + 0:
+                            total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                            total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                            total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query,
+                                              (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
+                                               model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
                 elif h == 0:
                     if len(name) != 14:
                         for word in temp3:
@@ -1200,18 +1253,18 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
                         for word in name:
                             day = d
                             month = m
                             year = 2020
                             hours = h
-                            minutes = min
+                            minutes = 45
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -1252,11 +1305,14 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
+                        break
                     else:
                         for word in name:
+                            print(1)
                             day = d
                             month = m
                             year = 2020
@@ -1278,6 +1334,7 @@ for i in range(1):
                                                       task, model, secs, minutes, hours, day, month, year))
                             my_db.commit()
                         for word in name:
+                            print(2)
                             day = d
                             month = m
                             year = 2020
@@ -1299,58 +1356,63 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
-                elif min/15 == 1 or min/15 == 2 or min/15 == 3 or min/15 == 4:
-                    for word in name:
-                        day = d
-                        month = m
-                        year = 2020
-                        hours = h
-                        minutes = min
-                        secs = random.choice(range(0, 60))
-                        time = (hours * 60 * 60) + (minutes * 60) + secs
-                        name2 = random.choice(name)
-                        action2 = 'checkpoint'
-                        if time < (7 * 60 * 60) + (45 * 60) + 0:
-                            total = ((3 * 60 * 60) + (30 * 60) + 0) + time
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
-                            total = time - ((7 * 60 * 60) + (45 * 60) + 0)
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        elif time > (20 * 60 * 60) + (30 * 60) + 0:
-                            total = time - ((20 * 60 * 60) + (30 * 60) + 0)
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query,
-                                              (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                               model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 45
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        break
                 elif h == 5:
                     if len(name) != 14:
                         for word in temp3:
@@ -1949,18 +2011,18 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
                         for word in name:
                             day = d
                             month = m
                             year = 2020
                             hours = h
-                            minutes = min
+                            minutes = 45
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -2001,9 +2063,11 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
+                        break
                     else:
                         for word in name:
                             day = d
@@ -2048,7 +2112,63 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 45
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        break
                 elif h == 7:
                     if len(name) != 14:
                         for word in temp3:
@@ -2609,55 +2729,13 @@ for i in range(1):
                             month = m
                             year = 2020
                             hours = h
-                            minutes = random.choice(range(36, 42))
-                            secs = random.choice(range(0, 60))
-                            name2 = word
-                            action2 = 'stop'
-                            total = ((hours * 60 * 60) + (minutes * 60) + secs) + ((3 * 60 * 60) + (30 * 60))
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        for word in name:
-                            day = d
-                            month = m
-                            year = 2020
-                            hours = h
-                            minutes = random.choice(range(43, 51))
-                            secs = random.choice(range(0, 60))
-                            name2 = word
-                            action2 = 'start'
-                            total = 0
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
-                        for word in name:
-                            day = d
-                            month = m
-                            year = 2020
-                            hours = h
-                            minutes = min
+                            minutes = 0
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -2698,10 +2776,66 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
-                    else:
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 15
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
                         for word in name:
                             day = d
                             month = m
@@ -2744,7 +2878,163 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs, minutes, hours, day, month, year))
                             my_db.commit()
-                        h += 1
+                        break
+                    else:
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 0
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 15
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = random.choice(range(36, 42))
+                            secs = random.choice(range(0, 60))
+                            name2 = word
+                            action2 = 'stop'
+                            total = ((hours * 60 * 60) + (minutes * 60) + secs) + ((3 * 60 * 60) + (30 * 60))
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = random.choice(range(43, 51))
+                            secs = random.choice(range(0, 60))
+                            name2 = word
+                            action2 = 'start'
+                            total = 0
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        break
                 elif h == 12:
                     if len(name) != 14:
                         for word in temp3:
@@ -3343,18 +3633,18 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
                         for word in name:
                             day = d
                             month = m
                             year = 2020
                             hours = h
-                            minutes = min
+                            minutes = 45
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -3395,9 +3685,11 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
+                        break
                     else:
                         for word in name:
                             day = d
@@ -3442,7 +3734,63 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 45
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        break
                 elif h == 17:
                     if len(name) != 14:
                         for word in temp3:
@@ -4041,18 +4389,18 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
                         for word in name:
                             day = d
                             month = m
                             year = 2020
                             hours = h
-                            minutes = min
+                            minutes = 45
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -4093,9 +4441,11 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
+                        break
                     else:
                         for word in name:
                             day = d
@@ -4140,7 +4490,63 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs1, minutes1, hours, day, month, year))
                             my_db.commit()
-                        h += 1
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 45
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        break
                 elif h == 20:
                     if len(name) != 14:
                         for word in temp3:
@@ -4701,55 +5107,13 @@ for i in range(1):
                             month = m
                             year = 2020
                             hours = h
-                            minutes = random.choice(range(11, 24))
-                            secs = random.choice(range(0, 60))
-                            name2 = word
-                            action2 = 'stop'
-                            total = ((hours * 60 * 60) + (minutes * 60) + secs) - ((7 * 60 * 60) + (45 * 60))
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        for word in name:
-                            day = d
-                            month = m
-                            year = 2020
-                            hours = h
-                            minutes = random.choice(range(25, 38))
-                            secs = random.choice(range(0, 60))
-                            name2 = word
-                            action2 = 'start'
-                            total = 0
-                            plan = 0
-                            setup = 0
-                            auto = 0
-                            ppr = 0
-                            break1 = 0
-                            material = 0
-                            task = 0
-                            model = 0
-                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
-                                                      task, model, secs, minutes, hours, day, month, year))
-                            my_db.commit()
-                        h += 1
-                    elif min / 15 == 1 or min / 15 == 2 or min / 15 == 3 or min / 15 == 4:
-                        for word in name:
-                            day = d
-                            month = m
-                            year = 2020
-                            hours = h
-                            minutes = min
+                            minutes = 0
                             secs = random.choice(range(0, 60))
                             time = (hours * 60 * 60) + (minutes * 60) + secs
-                            name2 = random.choice(name)
+                            name2 = word
                             action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
                             if time < (7 * 60 * 60) + (45 * 60) + 0:
                                 total = ((3 * 60 * 60) + (30 * 60) + 0) + time
                                 plan = 0
@@ -4790,10 +5154,66 @@ for i in range(1):
                                 model = 0
                                 my_cursor.execute(query,
                                                   (
-                                                  name2, action2, total, plan, setup, auto, ppr, break1, material, task,
-                                                  model, secs, minutes, hours, day, month, year))
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
                                 my_db.commit()
-                    else:
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 15
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
                         for word in name:
                             day = d
                             month = m
@@ -4836,7 +5256,163 @@ for i in range(1):
                             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
                                                       task, model, secs, minutes, hours, day, month, year))
                             my_db.commit()
-                        h += 1
+                        break
+                    else:
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 0
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = 15
+                            secs = random.choice(range(0, 60))
+                            time = (hours * 60 * 60) + (minutes * 60) + secs
+                            name2 = word
+                            action2 = 'checkpoint'
+                            print('------- ' + str(word) + ' checkpoint')
+                            print(str(hours) + ':' + str(minutes))
+                            if time < (7 * 60 * 60) + (45 * 60) + 0:
+                                total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                   task, model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                            elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                                total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                                plan = 0
+                                setup = 0
+                                auto = 0
+                                ppr = 0
+                                break1 = 0
+                                material = 0
+                                task = 0
+                                model = 0
+                                my_cursor.execute(query,
+                                                  (
+                                                      name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task,
+                                                      model, secs, minutes, hours, day, month, year))
+                                my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = random.choice(range(11, 24))
+                            secs = random.choice(range(0, 60))
+                            name2 = word
+                            action2 = 'stop'
+                            total = ((hours * 60 * 60) + (minutes * 60) + secs) - ((7 * 60 * 60) + (45 * 60))
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        for word in name:
+                            day = d
+                            month = m
+                            year = 2020
+                            hours = h
+                            minutes = random.choice(range(25, 38))
+                            secs = random.choice(range(0, 60))
+                            name2 = word
+                            action2 = 'start'
+                            total = 0
+                            plan = 0
+                            setup = 0
+                            auto = 0
+                            ppr = 0
+                            break1 = 0
+                            material = 0
+                            task = 0
+                            model = 0
+                            my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                                                      task, model, secs, minutes, hours, day, month, year))
+                            my_db.commit()
+                        break
                 else:
                     if random.randint(1, 20) == 1:
                         day = d
@@ -5455,3 +6031,56 @@ for i in range(1):
                                             temp1.pop(name3)
                                 else:
                                     pass
+                    # elif min == 15 or min == 30 or min == 45:
+                    #     for word in name:
+                    #         day = d
+                    #         month = m
+                    #         year = 2020
+                    #         hours = h
+                    #         minutes = min
+                    #         secs = random.choice(range(0, 60))
+                    #         time = (hours * 60 * 60) + (minutes * 60) + secs
+                    #         name2 = word
+                    #         action2 = 'checkpoint'
+                    #         print('------- ' + str(word) + ' checkpoint')
+                    #         print(str(h) + ':' + str(min))
+                    #         if time < (7 * 60 * 60) + (45 * 60) + 0:
+                    #             total = ((3 * 60 * 60) + (30 * 60) + 0) + time
+                    #             plan = 0
+                    #             setup = 0
+                    #             auto = 0
+                    #             ppr = 0
+                    #             break1 = 0
+                    #             material = 0
+                    #             task = 0
+                    #             model = 0
+                    #             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                    #                                       task, model, secs, minutes, hours, day, month, year))
+                    #             my_db.commit()
+                    #         elif (7 * 60 * 60) + (45 * 60) + 0 < time < (20 * 60 * 60) + (30 * 60) + 0:
+                    #             total = time - ((7 * 60 * 60) + (45 * 60) + 0)
+                    #             plan = 0
+                    #             setup = 0
+                    #             auto = 0
+                    #             ppr = 0
+                    #             break1 = 0
+                    #             material = 0
+                    #             task = 0
+                    #             model = 0
+                    #             my_cursor.execute(query, (name2, action2, total, plan, setup, auto, ppr, break1, material,
+                    #                                       task, model, secs, minutes, hours, day, month, year))
+                    #             my_db.commit()
+                    #         elif time > (20 * 60 * 60) + (30 * 60) + 0:
+                    #             total = time - ((20 * 60 * 60) + (30 * 60) + 0)
+                    #             plan = 0
+                    #             setup = 0
+                    #             auto = 0
+                    #             ppr = 0
+                    #             break1 = 0
+                    #             material = 0
+                    #             task = 0
+                    #             model = 0
+                    #             my_cursor.execute(query,
+                    #                               (name2, action2, total, plan, setup, auto, ppr, break1, material, task,
+                    #                                model, secs, minutes, hours, day, month, year))
+                    #             my_db.commit()
