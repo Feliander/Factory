@@ -282,11 +282,11 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                                self.check(p),
                                                self.check(s), self.check(a), self.check(r), self.check(b),
                                                self.check(m), self.check(k), self.check(d))
-                            if self.check(t) == 0:
-                                self.update()
-                                self.zero()
-                            else:
-                                self.explanation1(txt)
+                            # if self.check(t) == 0:
+                            #     self.update()
+                            #     self.zero()
+                            # else:
+                            #     self.explanation1(txt)
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
@@ -333,11 +333,11 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                         d = self.check(d1) + self.check(d2) + self.check(d3)
                         self.canvas = prepare_canvas(graph(text, t, p, s, a, r, b, m, k, d), layout=self.composition)
                         self.prepare_label(text, t, p, s, a, r, b, m, k, d)
-                        if self.check(t) == 0:
-                            self.update()
-                            self.zero()
-                        else:
-                            self.explanation0(txt)
+                        # if self.check(t) == 0:
+                        #     self.update()
+                        #     self.zero()
+                        # else:
+                        #     self.explanation0(txt)
                     else:
                         self.zero2()
                 elif self.day() <= self.day2():
@@ -420,6 +420,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def ttl(self, txt, h1, h2, m1, m2):
         if h1*60*60+m1*60 <= 27900 and h2*60*60+m2*60 <= 27900:
+            print(1)
             t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1)) - 12600
             print(int(t1/3600), int((t1/60) % 60), int(t1 % 60))
             t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2)) - 12600
@@ -428,21 +429,85 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
             print(int(t/3600), int((t/60) % 60), int(t % 60))
             return t
         elif h1*60*60+m1*60 <= 27900 <= h2*60*60+m2*60 <= 73800:
+            print(2)
             t1 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), h1, 8))
             t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
             t3 = self.check(t1) - self.check(t2)
             print(int(t3/3600), int((t3/60) % 60), int(t3 % 60))
-            t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+            if h2 == 7:
+                t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 45, m2))
+                t4 = self.check(t4)
+            else:
+                t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
             print(int(t4/3600), int((t4/60) % 60), int(t4 % 60))
             t = self.check(t3) + self.check(t4)
             print(int(t/3600), int((t/60) % 60), int(t % 60))
             return t
         elif h1*60*60+m1*60 <= 27900 and 73800 <= h2*60*60+m2*60 <= 86400:
+            print(3)
             t1 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), h1, 8))
             t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
             t3 = self.check(t1) - self.check(t2)
             print(int(t3 / 3600), int((t3 / 60) % 60), int(t3 % 60))
-
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), 20, 0, 30))
+            print(int(t4 / 3600), int((t4 / 60) % 60), int(t4 % 60))
+            if h2 == 20:
+                t5 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 30, m2))
+                t5 = self.check(t5)
+            else:
+                t5 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+                t5 = self.check(t5)
+            print(int(t5 / 3600), int((t5 / 60) % 60), int(t5 % 60))
+            t = self.check(t3) + self.check(t4) + self.check(t5)
+            print(int(t / 3600), int((t / 60) % 60), int(t % 60))
+            return t
+        elif 27900 <= h1*60*60+m1*60 <= 73800 and 27900 <= h2*60*60+m2*60 <= 73800:
+            print(4)
+            if h1 == 7:
+                t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 45, m1))
+                t1 = self.check(t1)
+            else:
+                t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
+                t1 = self.check(t1)
+            print(int(t1 / 3600), int((t1 / 60) % 60), int(t1 % 60))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+            print(int(t2 / 3600), int((t2 / 60) % 60), int(t2 % 60))
+            t = self.check(t2) - self.check(t1)
+            print(int(t / 3600), int((t / 60) % 60), int(t % 60))
+            return t
+        elif 27900 <= h1*60*60+m1*60 <= 73800 <= h2*60*60+m2*60 <= 86400:
+            print(5)
+            t1 = tot(sql6(query1, txt, self.year(), self.month(), self.day(), h1, 21))
+            if h1 == 7:
+                t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 45, m1))
+                t2 = self.check(t2)
+            else:
+                t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            print(int(t3 / 3600), int((t3 / 60) % 60), int(t3 % 60))
+            if h2 == 20:
+                t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 30, m2))
+                t4 = self.check(t4)
+            else:
+                t4 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+                t4 = self.check(t4)
+            print(int(t4 / 3600), int((t4 / 60) % 60), int(t4 % 60))
+            t = self.check(t3) + self.check(t4)
+            print(int(t / 3600), int((t / 60) % 60), int(t % 60))
+            return t
+        elif 73800 <= h1*60*60+m1*60 <= 86400 and 73800 <= h2*60*60+m2*60 <= 86400:
+            print(6)
+            if h1 == 20:
+                t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 30, m1))
+                t1 = self.check(t1)
+            else:
+                t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1))
+            print(int(t1 / 3600), int((t1 / 60) % 60), int(t1 % 60))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2))
+            print(int(t2 / 3600), int((t2 / 60) % 60), int(t2 % 60))
+            t = self.check(t2) - self.check(t1)
+            print(int(t / 3600), int((t / 60) % 60), int(t % 60))
+            return t
 
     def push(self):
         QtWidgets.QMessageBox.information(None, 'year', str(self.year()))
