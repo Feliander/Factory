@@ -42,7 +42,7 @@ query = 'INSERT INTO worktime (name, action, totaltime, plantime, setup, autoser
 
 for i in range(1):
     m = i + 1
-    for k in range(1):
+    for k in range(5):
         d = k + 1
         for h in range(24):
             for min in range(60):
