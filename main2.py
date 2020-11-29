@@ -152,7 +152,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.dateTimeEdit.setDateTime(QtCore.QDateTime(2020, 1, 1, 0, 0, 0))
         self.dateTimeEdit_2.setCalendarPopup(True)
         # self.dateTimeEdit_2.setDateTime(QtCore.QDateTime.currentDateTime())
-        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 3, 1, 0, 0, 0))
+        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 2, 1, 0, 0, 0))
 
     def prepare_label(self, txt, total_1=10, plan=10, setup=10, auto_serv=10, ppr1=10, br=10, material=10, task=10,
                       model=10):
@@ -849,44 +849,33 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def ttl3(self, txt, mon1, mon2, d1, d2, h1, h2, m1, m2):
         if h1 * 60 * 60 + m1 * 60 <= 27900 and h2 * 60 * 60 + m2 * 60 <= 27900:
-            print(1)
             t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
             t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
             t3 = self.check(t1) - self.check(t2)
             t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
             t5 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 30, 59))
-            print('t1 = ' + str(t3+t4+t5))
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2)) - 12600
             d3 = self.days(mon1) - d1
-            print('range in first month is ' + str(d3))
             t10 = 0
             for i in range(d3):
-                i += d1
-                if i == 1:
-                    pass
-                else:
-                    t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
-                    t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
-                    t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
-                    t10 += self.check(t101) + self.check(t102) + self.check(t103)
-            d4 = self.days(mon2) - d2
-            print('range in second month is ' + str(d4))
-            t20 = 0
-            for i in range(d4):
-                i += 1
-                t201 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
-                t202 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
-                t203 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
-                t20 += self.check(t201) + self.check(t202) + self.check(t203)
-            print('t2 = ' + str(t10 + t20))
-            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2)) - 12600
-            print('t3 = ' + str(t6))
-            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t20) + self.check(t6)
-            print('t = ' + str(t))
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t6)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
             if mon2 - mon1 != 1:
-                print('mon2 - mon1 != 1')
                 t30 = 0
                 mon3 = mon2 - mon1
-                print('mon3 = ' + str(mon3))
                 for i in range(mon3):
                     i += 1
                     if i == mon1:
@@ -894,14 +883,340 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                     else:
                         for k in range(self.days(i)):
                             k += 1
-                            print('i = ' + str(i))
-                            print('k = ' + str(k))
                             t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
                             t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
                             t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
                             t30 += self.check(t301) + self.check(t302) + self.check(t303)
                 t += t30
-                print('t = ' + str(t))
+            return t
+        elif h1 * 60 * 60 + m1 * 60 <= 27900 <= h2 * 60 * 60 + m2 * 60 <= 73800:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 30, 59))
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t7 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t6) + self.check(t7)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif h1 * 60 * 60 + m1 * 60 <= 27900 and 73800 <= h2 * 60 * 60 + m2 * 60 <= 86400:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 30, 59))
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t7 = tot(sql7(query2, txt, self.year(), self.month(), d2, 20, 0, 30))
+            t8 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t6) + self.check(t7) + \
+                self.check(t8)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 73800 >= h1 * 60 * 60 + m1 * 60 >= 27900 >= h2 * 60 * 60 + m2 * 60:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2)) - 12600
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 27900 <= h1 * 60 * 60 + m1 * 60 <= 73800 and 27900 <= h2 * 60 * 60 + m2 * 60 <= 73800:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t6)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 27900 <= h1 * 60 * 60 + m1 * 60 <= 73800 <= h2 * 60 * 60 + m2 * 60 <= 86400:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 20, 0, 30))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, 20, 0, 30))
+            t7 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10) + self.check(t6) + self.check(t7)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 73800 <= h1 * 60 * 60 + m1 * 60 <= 86400 and h2 * 60 * 60 + m2 * 60 <= 27900:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2)) - 12600
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t10)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 86400 >= h1 * 60 * 60 + m1 * 60 >= 73800 >= h2 * 60 * 60 + m2 * 60 >= 27900:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t10)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
+            return t
+        elif 86400 >= h1 * 60 * 60 + m1 * 60 >= 73800 and 86400 >= h2 * 60 * 60 + m2 * 60 >= 73800:
+            t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 23, 0, 59))
+            t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1))
+            t3 = self.check(t1) - self.check(t2)
+            t4 = tot(sql7(query2, txt, self.year(), self.month(), d2, 7, 0, 45)) - 12600
+            t5 = tot(sql7(query2, txt, self.year(), self.month(), d2, 20, 0, 30))
+            t6 = tot(sql7(query2, txt, self.year(), self.month(), d2, h2, 0, m2))
+            d3 = self.days(mon1) - d1
+            t10 = 0
+            for i in range(d3):
+                i += d1 + 1
+                t101 = tot(sql7(query2, txt, self.year(), self.month(), i, 7, 0, 45)) - 12600
+                t102 = tot(sql7(query2, txt, self.year(), self.month(), i, 20, 0, 30))
+                t103 = tot(sql7(query2, txt, self.year(), self.month(), i, 23, 0, 59))
+                t10 += self.check(t101) + self.check(t102) + self.check(t103)
+            t = self.check(t3) + self.check(t4) + self.check(t5) + self.check(t6) + self.check(t10)
+            if d2 != 1:
+                t20 = 0
+                for i in range(d2):
+                    i += 1
+                    t201 = tot(sql7(query2, txt, self.year(), self.month2(), i, 7, 0, 45)) - 12600
+                    t202 = tot(sql7(query2, txt, self.year(), self.month2(), i, 20, 0, 30))
+                    t203 = tot(sql7(query2, txt, self.year(), self.month2(), i, 23, 0, 59))
+                    t20 += self.check(t201) + self.check(t202) + self.check(t203)
+                t += self.check(t20)
+            if mon2 - mon1 != 1:
+                t30 = 0
+                mon3 = mon2 - mon1
+                for i in range(mon3):
+                    i += 1
+                    if i == mon1:
+                        pass
+                    else:
+                        for k in range(self.days(i)):
+                            k += 1
+                            t301 = tot(sql7(query2, txt, self.year(), i, k, 7, 0, 45)) - 12600
+                            t302 = tot(sql7(query2, txt, self.year(), i, k, 20, 0, 30))
+                            t303 = tot(sql7(query2, txt, self.year(), i, k, 23, 0, 59))
+                            t30 += self.check(t301) + self.check(t302) + self.check(t303)
+                t += t30
             return t
 
     def push(self):
