@@ -146,13 +146,18 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                      layout=self.composition)
         self.prepare_label('Графика нет, выберите дату')
         self.pushButton.clicked.connect(self.push)
-        self.pushButton.setText('Ввести SQL запрос')
+        self.pushButton.setText('Найти')
+        self.label_22.setText('Поиск:')
+        self.label_22.setAlignment(QtCore.Qt.AlignRight)
+        self.label_23.setAlignment(QtCore.Qt.AlignRight)
+        self.label_24.setAlignment(QtCore.Qt.AlignRight)
+        self.label.setAlignment(QtCore.Qt.AlignRight)
         self.dateTimeEdit.setCalendarPopup(True)
         # self.dateTimeEdit.setDateTime(QtCore.QDateTime.currentDateTime())
         self.dateTimeEdit.setDateTime(QtCore.QDateTime(2020, 1, 1, 0, 0, 0))
         self.dateTimeEdit_2.setCalendarPopup(True)
         # self.dateTimeEdit_2.setDateTime(QtCore.QDateTime.currentDateTime())
-        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 2, 1, 0, 0, 0))
+        self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 1, 2, 0, 0, 0))
 
     def prepare_label(self, txt, total_1=10, plan=10, setup=10, auto_serv=10, ppr1=10, br=10, material=10, task=10,
                       model=10):
@@ -208,50 +213,110 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                           'отсчёта!\n\n'
                                           'Никаких данных отображено не будет.')
 
-    def act(self, text):
-        self.update()
+    @staticmethod
+    def act(text):
+        global eng_name
         if text == 'Лазер №1':
-            txt = 'Laser1'
-            self.total(txt, text)
+            eng_name = 'Laser1'
+            print(eng_name)
         elif text == 'Лазер №2':
-            txt = 'Laser2'
-            self.total(txt, text)
+            eng_name = 'Laser2'
+            print(eng_name)
         elif text == 'Пробивка №1':
-            txt = 'Punch1'
-            self.total(txt, text)
+            eng_name = 'Punch1'
+            print(eng_name)
         elif text == 'Пробивка №2':
-            txt = 'Punch2'
-            self.total(txt, text)
+            eng_name = 'Punch2'
+            print(eng_name)
         elif text == 'Гибка №1':
-            txt = 'Bend1'
-            self.total(txt, text)
+            eng_name = 'Bend1'
+            print(eng_name)
         elif text == 'Гибка №2':
-            txt = 'Bend2'
-            self.total(txt, text)
+            eng_name = 'Bend2'
+            print(eng_name)
         elif text == 'Сварка №1':
-            txt = 'Weld1'
-            self.total(txt, text)
+            eng_name = 'Weld1'
+            print(eng_name)
         elif text == 'Сварка №2':
-            txt = 'Weld2'
-            self.total(txt, text)
+            eng_name = 'Weld2'
+            print(eng_name)
         elif text == 'Сварочный робот №1':
-            txt = 'Weld_Robot1'
-            self.total(txt, text)
+            eng_name = 'Weld_Robot1'
+            print(eng_name)
         elif text == 'Сварочный робот №2':
-            txt = 'Weld_Robot2'
-            self.total(txt, text)
+            eng_name = 'Weld_Robot2'
+            print(eng_name)
         elif text == 'Сборка №1':
-            txt = 'Assembly1'
-            self.total(txt, text)
+            eng_name = 'Assembly1'
+            print(eng_name)
         elif text == 'Сборка №2':
-            txt = 'Assembly2'
-            self.total(txt, text)
+            eng_name = 'Assembly2'
+            print(eng_name)
         elif text == 'Зачистка №1':
-            txt = 'Cleaning1'
-            self.total(txt, text)
+            eng_name = 'Cleaning1'
+            print(eng_name)
         elif text == 'Зачистка №2':
-            txt = 'Cleaning2'
-            self.total(txt, text)
+            eng_name = 'Cleaning2'
+            print(eng_name)
+
+    @staticmethod
+    def text(text):
+        if text == 'Laser1':
+            txt = 'Лазер №1'
+            print(txt)
+            return txt
+        elif text == 'Laser2':
+            txt = 'Лазер №2'
+            print(txt)
+            return txt
+        elif text == 'Punch1':
+            txt = 'Пробивка №1'
+            print(txt)
+            return txt
+        elif text == 'Punch2':
+            txt = 'Пробивка №2'
+            print(txt)
+            return txt
+        elif text == 'Bend1':
+            txt = 'Гибка №1'
+            print(txt)
+            return txt
+        elif text == 'Bend2':
+            txt = 'Гибка №2'
+            print(txt)
+            return txt
+        elif text == 'Weld1':
+            txt = 'Сварка №1'
+            print(txt)
+            return txt
+        elif text == 'Weld2':
+            txt = 'Сварка №2'
+            print(txt)
+            return txt
+        elif text == 'Weld_Robot1':
+            txt = 'Сварочный робот №1'
+            print(txt)
+            return txt
+        elif text == 'Weld_Robot2':
+            txt = 'Сварочный робот №2'
+            print(txt)
+            return txt
+        elif text == 'Assembly1':
+            txt = 'Сборка №1'
+            print(txt)
+            return txt
+        elif text == 'Assembly2':
+            txt = 'Сборка №2'
+            print(txt)
+            return txt
+        elif text == 'Cleaning1':
+            txt = 'Зачистка №1'
+            print(txt)
+            return txt
+        elif text == 'Cleaning2':
+            txt = 'Зачистка №2'
+            print(txt)
+            return txt
 
     def total(self, txt, text):
         if self.year() == self.year2():
@@ -284,11 +349,6 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                                                self.check(p),
                                                self.check(s), self.check(a), self.check(r), self.check(b),
                                                self.check(m), self.check(k), self.check(d))
-                            # if self.check(t) == 0:
-                            #     self.update()
-                            #     self.zero()
-                            # else:
-                            #     self.explanation1(txt)
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
@@ -335,11 +395,6 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                         d = self.check(d1) + self.check(d2) + self.check(d3)
                         self.canvas = prepare_canvas(graph(text, t, p, s, a, r, b, m, k, d), layout=self.composition)
                         self.prepare_label(text, t, p, s, a, r, b, m, k, d)
-                        # if self.check(t) == 0:
-                        #     self.update()
-                        #     self.zero()
-                        # else:
-                        #     self.explanation0(txt)
                     else:
                         self.zero2()
                 elif self.day() <= self.day2():
@@ -505,61 +560,6 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
             self.zero()
         else:
             self.zero2()
-
-    def explanation0(self, txt):
-        t_1 = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60)))
-        t_2 = self.check(tot(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
-                                  self.hour2() - 1)))
-        t_3 = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour2(), 0, self.min2())))
-        t_4 = t_1 + t_2 + t_3
-        explanation = 'Запрос разделён на три части.' \
-                      '\n\nПервый запрос:' \
-                      '\nВыбрать всё необходимое где дата равна:' \
-                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
-                      str(self.year()) + ' ' + self.check2(str(self.hour())) + ' часов' \
-                      '\nИ минуты в промежутке между: ' + self.check2(str(self.min())) + ' и 60' \
-                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_1 / 3600, (t_1 / 60) % 60, t_1 % 60)) + \
-                      ' или ' + str(t_1) + ' секунд'\
-                      '\n\nВторой запрос:' \
-                      '\nВыбрать всё необходимое где дата равна:' + \
-                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
-                      str(self.year()) + \
-                      '\nИ часы в промежутке между: ' + self.check2(str(self.hour() + 1)) + ':00 и ' \
-                      + self.check2(str(self.hour2() - 1)) + ':00' + \
-                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_2 / 3600, (t_2 / 60) % 60, t_2 % 60)) + \
-                      ' или ' + str(t_2) + ' секунд'\
-                      '\n\nТретий запрос:' \
-                      '\nВыбрать всё необходимое где дата равна:' + \
-                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
-                      str(self.year()) + ' ' + self.check2(str(self.hour2())) + ' часов'\
-                      '\nИ минуты в промежутке между: 0 и ' + self.check2(str(self.min2())) + \
-                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t_3 / 3600, (t_3 / 60) % 60, t_3 % 60)) + \
-                      ' или ' + str(t_3) + ' секунд'\
-                      '\n\nРабота всего: ' + ("%02d ч %02d м %02d с " %
-                                              (t_4 / 3600, (t_4 / 60) % 60, t_4 % 60)) + \
-                      ' или ' + str(t_4) + ' секунд'
-        QtWidgets.QMessageBox.information(None, 'Удачный запрос', explanation)
-
-    def explanation1(self, txt):
-        t = self.check(tot(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
-                                self.min2())))
-        explanation = 'Запрос состоит из одной части.' \
-                      '\n\nВыбрать всё необходимое где дата равна:' \
-                      '\n' + self.check2(str(self.day())) + '.' + self.check2(str(self.month())) + '.' + \
-                      str(self.year()) + ' ' + self.check2(str(self.hour())) + ' часов' \
-                      '\nИ минуты в промежутке между: ' + self.check2(str(self.min())) + ' и ' + \
-                      self.check2(str(self.min2())) + \
-                      '\nРабота: ' + ("%02d ч %02d м %02d с " % (t / 3600, (t / 60) % 60, t % 60)) + \
-                      ' или ' + str(t) + ' секунд'
-        QtWidgets.QMessageBox.information(None, 'Удачный запрос', explanation)
-
-    @staticmethod
-    def check2(val):
-        if val == '0':
-            val = '00'
-        elif len(val) == 1:
-            val = '0' + val
-        return val
 
     @staticmethod
     def check(val):
@@ -1220,35 +1220,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
             return t
 
     def push(self):
-        QtWidgets.QMessageBox.information(None, 'year', str(self.year()))
-        QtWidgets.QMessageBox.information(None, 'month', str(self.month()))
-        QtWidgets.QMessageBox.information(None, 'day', str(self.day()))
-        QtWidgets.QMessageBox.information(None, 'hours', str(self.hour()))
-        QtWidgets.QMessageBox.information(None, 'minutes', str(self.min()))
-        QtWidgets.QMessageBox.information(None, 'year2', str(self.year2()))
-        QtWidgets.QMessageBox.information(None, 'month2', str(self.month2()))
-        QtWidgets.QMessageBox.information(None, 'day2', str(self.day2()))
-        QtWidgets.QMessageBox.information(None, 'hours2', str(self.hour2()))
-        QtWidgets.QMessageBox.information(None, 'minutes2', str(self.min2()))
-        # tex, ok = QtWidgets.QInputDialog.getText(None, 'Запрос', 'Введите SQL запрос, например:',
-        #                                        text='SELECT SUM(totaltime) FROM worktime WHERE name = \'Laser L20\'')
-        # try:
-        #     if ok:
-        #         mycursor.execute(tex)
-        #         myresult = mycursor.fetchall()
-        #         try:
-        #             for x in myresult:
-        #                 tot = x[0]
-        #             QtWidgets.QMessageBox.information(None, 'Результат запроса',
-        #                                               'Результат: ' + " %02d ч %02d м %02d с " %
-        #                                               (tot / 3600, (tot / 60) % 60, tot % 60))
-        #         except:
-        #             flatten = [str(item) for sub in myresult for item in sub]
-        #             QtWidgets.QMessageBox.information(None, 'Результат запроса',
-        #                                               'Результат: ' + str(flatten))
-        #
-        # except:
-        #     QtWidgets.QMessageBox.information(None, 'Результат запроса', 'Ошибка!')
+        self.update()
+        self.total(eng_name, self.text(eng_name))
 
     def year(self):
         dt = self.dateTimeEdit.dateTime()
