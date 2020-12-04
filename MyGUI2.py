@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'MyUI4.ui'
-#
-# Created by: PyQt5 UI code generator 5.14.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -151,9 +142,13 @@ class Ui_MainWindow(object):
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem3, 1, 7, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.widget_3)
-        self.label_3.setStyleSheet("text-decoration: underline;")
+        self.label_3.setStyleSheet("color: rgb(0, 0, 0);")
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 0, 3, 1, 1)
+        self.label_1 = QtWidgets.QLabel(self.widget_3)
+        self.label_1.setStyleSheet("color: rgb(0, 0, 0);")
+        self.label_1.setObjectName("label_1")
+        self.gridLayout.addWidget(self.label_1, 0, 4, 1, 1)
         self.verticalLayout.addWidget(self.widget_3)
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem4)
@@ -184,25 +179,26 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(13, _translate("MainWindow", "Зачистка №2"))
         self.label_23.setText(_translate("MainWindow", "Начало отсчёта:"))
         self.label_22.setText(_translate("MainWindow", "Ручной ввод:"))
-        self.label_10.setText(_translate("MainWindow", "TextLabel"))
-        self.label_6.setText(_translate("MainWindow", "TextLabel"))
-        self.label_13.setText(_translate("MainWindow", "TextLabel"))
-        self.label_5.setText(_translate("MainWindow", "TextLabel"))
-        self.label_12.setText(_translate("MainWindow", "TextLabel"))
-        self.label_2.setText(_translate("MainWindow", "TextLabel"))
-        self.label_14.setText(_translate("MainWindow", "TextLabel"))
-        self.label_7.setText(_translate("MainWindow", "TextLabel"))
-        self.label_18.setText(_translate("MainWindow", "TextLabel"))
-        self.label_15.setText(_translate("MainWindow", "TextLabel"))
-        self.label_17.setText(_translate("MainWindow", "TextLabel"))
-        self.label_9.setText(_translate("MainWindow", "TextLabel"))
-        self.label_11.setText(_translate("MainWindow", "TextLabel"))
-        self.label_8.setText(_translate("MainWindow", "TextLabel"))
-        self.label_16.setText(_translate("MainWindow", "TextLabel"))
-        self.label_19.setText(_translate("MainWindow", "TextLabel"))
-        self.label_20.setText(_translate("MainWindow", "TextLabel"))
-        self.label_21.setText(_translate("MainWindow", "TextLabel"))
-        self.label_3.setText(_translate("MainWindow", "TextLabel"))
+        self.label_10.setText(_translate("MainWindow", "label_10"))
+        self.label_6.setText(_translate("MainWindow", "label_6"))
+        self.label_13.setText(_translate("MainWindow", "label_13"))
+        self.label_5.setText(_translate("MainWindow", "label_5"))
+        self.label_12.setText(_translate("MainWindow", "label_12"))
+        self.label_2.setText(_translate("MainWindow", "label_2"))
+        self.label_14.setText(_translate("MainWindow", "label_14"))
+        self.label_7.setText(_translate("MainWindow", "label_7"))
+        self.label_18.setText(_translate("MainWindow", "label_18"))
+        self.label_15.setText(_translate("MainWindow", "label_15"))
+        self.label_17.setText(_translate("MainWindow", "label_17"))
+        self.label_9.setText(_translate("MainWindow", "label_9"))
+        self.label_11.setText(_translate("MainWindow", "label_11"))
+        self.label_8.setText(_translate("MainWindow", "label_8"))
+        self.label_16.setText(_translate("MainWindow", "label_16"))
+        self.label_19.setText(_translate("MainWindow", "label_19"))
+        self.label_20.setText(_translate("MainWindow", "label_20"))
+        self.label_21.setText(_translate("MainWindow", "label_21"))
+        self.label_3.setText(_translate("MainWindow", "label_3"))
+        self.label_1.setText(_translate("MainWindow", "label_1"))
 
 
 if __name__ == "__main__":

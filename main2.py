@@ -30,6 +30,8 @@ query3 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(p
 query4 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month between (%s) and (%s))'
 
+eng_name = 'Laser1'
+
 
 class MyMplCanvas(FigureCanvasQTAgg):
     def __init__(self, fig):
@@ -152,19 +154,21 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_23.setAlignment(QtCore.Qt.AlignRight)
         self.label_24.setAlignment(QtCore.Qt.AlignRight)
         self.label.setAlignment(QtCore.Qt.AlignRight)
+        self.label_1.setAlignment(QtCore.Qt.AlignLeft)
         self.dateTimeEdit.setCalendarPopup(True)
-        # self.dateTimeEdit.setDateTime(QtCore.QDateTime.currentDateTime())
         self.dateTimeEdit.setDateTime(QtCore.QDateTime(2020, 1, 1, 0, 0, 0))
         self.dateTimeEdit_2.setCalendarPopup(True)
-        # self.dateTimeEdit_2.setDateTime(QtCore.QDateTime.currentDateTime())
         self.dateTimeEdit_2.setDateTime(QtCore.QDateTime(2020, 1, 2, 0, 0, 0))
 
-    def prepare_label(self, txt, total_1=10, plan=10, setup=10, auto_serv=10, ppr1=10, br=10, material=10, task=10,
+    def prepare_label(self, txt, total_1=100, plan=10, setup=10, auto_serv=10, ppr1=10, br=10, material=10, task=10,
                       model=10):
-        self.label_3.setText(txt)
+        total = total_1 - plan - setup - auto_serv - ppr1 - br - material - task - model
+        self.label_3.setText(txt + ':')
+        self.label_1.setText("%02d ч %02d м %02d с " %
+                             (total_1 / 3600, (total_1 / 60) % 60, total_1 % 60))
         self.label_2.setText('Работа:')
         self.label_5.setText("%02d ч %02d м %02d с " %
-                             (total_1 / 3600, (total_1 / 60) % 60, total_1 % 60))
+                             (total / 3600, (total / 60) % 60, total % 60))
         self.label_6.setText('Плановый перерыв:')
         self.label_14.setText("%02d ч %02d м %02d с " %
                               (plan / 3600, (plan / 60) % 60, plan % 60))
