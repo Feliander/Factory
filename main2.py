@@ -1,9 +1,10 @@
 import sys
+import pymysql
 from PyQt5 import QtWidgets, QtCore
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib import pyplot as plt
-from Factory.MyGUI2 import Ui_MainWindow
-import pymysql
+from MyGUI2 import Ui_MainWindow
+
 
 db = pymysql.connect(
     host='localhost',

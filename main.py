@@ -2,7 +2,7 @@ import sys
 import datetime
 import pymysql
 from PyQt5 import QtWidgets, QtCore
-from Factory.MyGUI import Ui_MainWindow
+from MyGUI import Ui_MainWindow
 
 
 class MyWin(QtWidgets.QMainWindow):
