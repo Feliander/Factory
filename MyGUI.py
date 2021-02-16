@@ -48,6 +48,9 @@ class Ui_MainWindow(object):
         self.label_2 = QtWidgets.QLabel(self.frame_2)
         self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 0, 2, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.frame_2)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_2.addWidget(self.label_3, 0, 3, 1, 1)
         self.verticalLayout.addWidget(self.frame_2)
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setStyleSheet("background-color: rgb(172, 172, 172);")
@@ -119,7 +122,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton_2.setText(_translate("MainWindow", "Перезагрузка"))
         self.pushButton.setText(_translate("MainWindow", "Выключение"))
-        #self.label.setText(_translate("MainWindow", "Рабочая смена:"))
         self.pushButton_3.setText(_translate("MainWindow", "Начало\n"
 "смены"))
         self.pushButton_6.setText(_translate("MainWindow", "Переналадка\n"
