@@ -16,6 +16,7 @@ db = pymysql.connect(
 )
 my_cursor = db.cursor()
 
+
 query1 = 'SELECT MAX(totaltime), SUM(plantime), SUM(setup), SUM(autoserv), SUM(ppr), SUM(break), SUM(material), ' \
          'SUM(task), SUM(maket) FROM worktime WHERE (name = %s) AND (year = (%s)) AND (month = (%s)) AND (day = (%s)) '\
          'AND (hours BETWEEN (%s) AND (%s))'
@@ -138,7 +139,7 @@ def graph(name, totall, plan, setup, autoserv, ppr, br, material, task, maket):
     return fig, axes
 
 
-class Example(QtWidgets.QMainWindow, Ui_MainWindow):
+class Main_Class(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -223,113 +224,85 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
         global eng_name
         if text == 'Лазер №1':
             eng_name = 'Laser1'
-            print(eng_name)
         elif text == 'Лазер №2':
             eng_name = 'Laser2'
-            print(eng_name)
         elif text == 'Пробивка №1':
             eng_name = 'Punch1'
-            print(eng_name)
         elif text == 'Пробивка №2':
             eng_name = 'Punch2'
-            print(eng_name)
         elif text == 'Гибка №1':
             eng_name = 'Bend1'
-            print(eng_name)
         elif text == 'Гибка №2':
             eng_name = 'Bend2'
-            print(eng_name)
         elif text == 'Сварка №1':
             eng_name = 'Weld1'
-            print(eng_name)
         elif text == 'Сварка №2':
             eng_name = 'Weld2'
-            print(eng_name)
         elif text == 'Сварочный робот №1':
             eng_name = 'Weld_Robot1'
-            print(eng_name)
         elif text == 'Сварочный робот №2':
             eng_name = 'Weld_Robot2'
-            print(eng_name)
         elif text == 'Сборка №1':
             eng_name = 'Assembly1'
-            print(eng_name)
         elif text == 'Сборка №2':
             eng_name = 'Assembly2'
-            print(eng_name)
         elif text == 'Зачистка №1':
             eng_name = 'Cleaning1'
-            print(eng_name)
         elif text == 'Зачистка №2':
             eng_name = 'Cleaning2'
-            print(eng_name)
 
     @staticmethod
     def text(text):
         if text == 'Laser1':
             txt = 'Лазер №1'
-            print(txt)
             return txt
         elif text == 'Laser2':
             txt = 'Лазер №2'
-            print(txt)
             return txt
         elif text == 'Punch1':
             txt = 'Пробивка №1'
-            print(txt)
             return txt
         elif text == 'Punch2':
             txt = 'Пробивка №2'
-            print(txt)
             return txt
         elif text == 'Bend1':
             txt = 'Гибка №1'
-            print(txt)
             return txt
         elif text == 'Bend2':
             txt = 'Гибка №2'
-            print(txt)
             return txt
         elif text == 'Weld1':
             txt = 'Сварка №1'
-            print(txt)
             return txt
         elif text == 'Weld2':
             txt = 'Сварка №2'
-            print(txt)
             return txt
         elif text == 'Weld_Robot1':
             txt = 'Сварочный робот №1'
-            print(txt)
             return txt
         elif text == 'Weld_Robot2':
             txt = 'Сварочный робот №2'
-            print(txt)
             return txt
         elif text == 'Assembly1':
             txt = 'Сборка №1'
-            print(txt)
             return txt
         elif text == 'Assembly2':
             txt = 'Сборка №2'
-            print(txt)
             return txt
         elif text == 'Cleaning1':
             txt = 'Зачистка №1'
-            print(txt)
             return txt
         elif text == 'Cleaning2':
             txt = 'Зачистка №2'
-            print(txt)
             return txt
 
-    def total(self, txt, text):
+    def get(self, txt, text):
         if self.year() == self.year2():
             if self.month() == self.month2():
                 if self.day() == self.day2():
                     if self.hour() == self.hour2():
                         if self.min() <= self.min2():
-                            t = self.ttl(txt, self.hour(), self.hour2(), self.min(), self.min2())
+                            t = self.get_total(txt, self.hour(), self.hour2(), self.min(), self.min2())
                             p = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
                                          self.min2()))
                             s = stp(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(),
@@ -357,7 +330,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                         else:
                             self.zero2()
                     elif self.hour() <= self.hour2():
-                        t = self.ttl(txt, self.hour(), self.hour2(), self.min(), self.min2())
+                        t = self.get_total(txt, self.hour(), self.hour2(), self.min(), self.min2())
                         p1 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
                         p2 = pln(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1,
                                       self.hour2() - 1))
@@ -403,7 +376,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                     else:
                         self.zero2()
                 elif self.day() <= self.day2():
-                    t = self.ttl2(txt, self.day(), self.day2(), self.hour(), self.hour2(), self.min(), self.min2())
+                    t = self.get_total_2(txt, self.day(), self.day2(), self.hour(), self.hour2(), self.min(),
+                                         self.min2())
                     p1 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 60))
                     p2 = pln(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1, 23))
                     p3 = pln(sql6(query1, txt, self.year(), self.month(), self.day2(), 0, self.hour2() - 1))
@@ -474,8 +448,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                 else:
                     self.zero2()
             elif self.month() <= self.month2():
-                t = self.ttl3(txt, self.month(), self.month2(), self.day(), self.day2(), self.hour(), self.hour2(),
-                              self.min(), self.min2())
+                t = self.get_total_3(txt, self.month(), self.month2(), self.day(), self.day2(), self.hour(),
+                                     self.hour2(), self.min(), self.min2())
                 p1 = pln(sql7(query2, txt, self.year(), self.month(), self.day(), self.hour(), self.min(), 59))
                 p2 = pln(sql6(query1, txt, self.year(), self.month(), self.day(), self.hour() + 1, 23))
                 p3 = pln(sql5(query3, txt, self.year(), self.month(), self.day() + 1, self.days(self.month())))
@@ -584,7 +558,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
             d = 30
             return d
 
-    def ttl(self, txt, h1, h2, m1, m2):
+    def get_total(self, txt, h1, h2, m1, m2):
         if h1*60*60+m1*60 <= 27900 and h2*60*60+m2*60 <= 27900:
             t1 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h1, 0, m1)) - 12600
             t2 = tot(sql7(query2, txt, self.year(), self.month(), self.day(), h2, 0, m2)) - 12600
@@ -650,9 +624,8 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
             t = self.check(t2) - self.check(t1)
             return t
 
-    def ttl2(self, txt, d1, d2, h1, h2, m1, m2):
+    def get_total_2(self, txt, d1, d2, h1, h2, m1, m2):
         if h1 * 60 * 60 + m1 * 60 <= 27900 and h2 * 60 * 60 + m2 * 60 <= 27900:
-            print(1)
             t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
             t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
             t3 = self.check(t1) - self.check(t2)
@@ -675,7 +648,6 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                 t += t10
             return t
         elif h1 * 60 * 60 + m1 * 60 <= 27900 <= h2 * 60 * 60 + m2 * 60 <= 73800:
-            print(2)
             t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
             t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
             t3 = self.check(t1) - self.check(t2)
@@ -852,7 +824,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
                 t += t10
             return t
 
-    def ttl3(self, txt, mon1, mon2, d1, d2, h1, h2, m1, m2):
+    def get_total_3(self, txt, mon1, mon2, d1, d2, h1, h2, m1, m2):
         if h1 * 60 * 60 + m1 * 60 <= 27900 and h2 * 60 * 60 + m2 * 60 <= 27900:
             t1 = tot(sql7(query2, txt, self.year(), self.month(), d1, 7, 0, 45)) - 12600
             t2 = tot(sql7(query2, txt, self.year(), self.month(), d1, h1, 0, m1)) - 12600
@@ -1226,7 +1198,7 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def push(self):
         self.update()
-        self.total(eng_name, self.text(eng_name))
+        self.get(eng_name, self.text(eng_name))
 
     def year(self):
         dt = self.dateTimeEdit.dateTime()
@@ -1281,6 +1253,6 @@ class Example(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ex = Example()
+    ex = Main_Class()
     ex.show()
     sys.exit(app.exec_())
